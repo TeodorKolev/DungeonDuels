@@ -1,5 +1,9 @@
 package models;
 
+import interfaces.iAttackable;
+import interfaces.iCastable;
+import interfaces.iHurtable;
+
 public class Mage extends Creature implements iAttackable, iHurtable, iCastable {
 
     private String name;
@@ -23,13 +27,15 @@ public class Mage extends Creature implements iAttackable, iHurtable, iCastable 
     }
 
     @Override
-    public int doDamage(int damage) {
-        return damage;
+    public void doDamage(int damage) {
+        System.out.println(this.getName() + " deal " + damage + " damage.");
     }
 
     @Override
-    public int getDamage(int damage) {
-        return damage;
+    public void getDamage(int damage) {
+        this.setHealth(this.getHealth() - damage);
+        System.out.println(this.getName() + " gets " + damage + " damage. Remaining life: " +
+                this.getHealth() + " health.");
     }
 
     @Override

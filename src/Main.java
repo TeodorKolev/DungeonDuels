@@ -6,6 +6,7 @@ public class Main {
 
         Mage mediv = new Mage("Mediv");
         System.out.println(mediv.getDamage());
+        mediv.getDamage(5);
         mediv.castSpecial();
     }
 }
