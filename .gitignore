@@ -74,5 +74,5 @@ dll/
 # vscode #
 .vscode/angulardoc.json
 
-
 .out/
+.out/*
