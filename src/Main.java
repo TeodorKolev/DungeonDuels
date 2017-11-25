@@ -1,6 +1,11 @@
+import models.Mage;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        Mage mediv = new Mage("Mediv");
+        System.out.println(mediv.getDamage());
+        mediv.castSpecial();
     }
 }
