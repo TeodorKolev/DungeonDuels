@@ -14,7 +14,7 @@ public class Mage extends Creature implements iAttackable, iHurtable, iCastable 
     private LightingBold specialCast = new LightingBold();
 
     public Mage(String name) {
-        super(Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE);
+        super(Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENCE);
         this.name = name;
     }
 

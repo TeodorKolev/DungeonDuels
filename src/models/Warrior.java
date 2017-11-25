@@ -14,7 +14,7 @@ public class Warrior extends Creature implements iAttackable, iHurtable, iCastab
     private Cleave specialCast = new Cleave(this.getDamage() / 2);
 
     public Warrior(String name) {
-        super(Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE);
+        super(Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENCE);
         this.name = name;
     }
 
