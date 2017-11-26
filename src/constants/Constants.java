@@ -16,6 +16,11 @@ public class Constants {
     public static final int WARRIOR_HEALTH = 100;
     public static final int WARRIOR_CAST_SPECIAL_CHANCE = 20;
 
+    public static final int SKELETON_DAMAGE = 7;
+    public static final int SKELETON_DAMAGE_BONUS_POINT = 1;
+    public static final int SKELETON_DAMAGE_BONUS_CHANCE = 33;
+    public static final int SKELETON_DEFENCE = 2;
+    public static final int SKELETON_HEALTH = 80;
 
     public static final int LIGHTING_BOLD_DAMAGE = 3;
 

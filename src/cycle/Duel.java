@@ -1,18 +1,19 @@
 package cycle;
 
 import models.base.Creature;
+import models.base.Monster;
 import models.base.Player;
 import models.heroes.Mage;
 import models.heroes.Warrior;
 
-public class GameCycle {
+public class Duel {
 
     private Player hero;
-    private Player monster;
+    private Monster monster;
 
     private int round;
 
-    public GameCycle(Player hero, Player monster) {
+    public Duel(Player hero, Monster monster) {
         this.hero = hero;
         this.monster = monster;
     }
@@ -25,11 +26,11 @@ public class GameCycle {
         this.hero = hero;
     }
 
-    public Player getMonster() {
+    public Monster getMonster() {
         return monster;
     }
 
-    public void setMonster(Player monster) {
+    public void setMonster(Monster monster) {
         this.monster = monster;
     }
 
@@ -43,6 +44,7 @@ public class GameCycle {
 
     public void start() {
         hero.attack();
+        monster.attack();
     }
 
 }
