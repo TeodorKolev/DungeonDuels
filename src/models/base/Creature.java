@@ -1,12 +1,13 @@
 package models.base;
 
-public class Creature {
+public class Creature extends Entity {
 
     private int health;
     private int damage;
     private int defence;
 
-    public Creature(int health, int damage, int defence) {
+    public Creature(String name, int health, int damage, int defence) {
+        super(name);
         this.health = health;
         this.damage = damage;
         this.defence = defence;

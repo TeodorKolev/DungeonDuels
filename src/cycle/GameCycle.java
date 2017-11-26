@@ -42,7 +42,7 @@ public class GameCycle {
     }
 
     public void start() {
-        hero.doDamage();
+        hero.attack();
     }
 
 }

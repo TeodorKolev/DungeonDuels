@@ -4,13 +4,12 @@ import models.heroes.Cleric;
 import models.heroes.Mage;
 import models.heroes.Warrior;
 
-public class Player {
+public class Player extends Entity {
 
     private Creature creature;
 
-    private String name;
-
-    public Player(Creature creature){
+    public Player(String name, Creature creature) {
+        super(name);
         this.creature = creature;
     }
 
@@ -22,19 +21,11 @@ public class Player {
         this.creature = creature;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void doDamage(){
+    public void attack(){
         if(creature instanceof Warrior){
-            ((Warrior) creature).doDamage();
+            ((Warrior) creature).attack(this.getName());
         } else if(creature instanceof Mage){
-            ((Mage) creature).doDamage();
+            ((Mage) creature).attack(this.getName());
         }
     }
 

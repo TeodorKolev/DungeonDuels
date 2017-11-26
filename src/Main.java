@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Player warr = new Player(new Mage("Warrr"));
+        Player warr = new Player("Warr", new Warrior());
         GameCycle gameCycle = new GameCycle(warr, warr);
         gameCycle.start();
     }

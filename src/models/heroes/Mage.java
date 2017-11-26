@@ -9,33 +9,23 @@ import java.util.Random;
 
 public class Mage extends Creature implements iCastable {
 
-    private String name;
     private LightingBold specialCast = new LightingBold();
 
-    public Mage(String name) {
-        super(Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENCE);
-        this.name = name;
+    public Mage() {
+        super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENCE);
     }
 
     private LightingBold getSpecialCast() {
         return specialCast;
     }
 
-    private String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void doDamage() {
-        this.doDamage(this.getName(), this.getDamage());
+    public void attack(String playerName) {
+        this.doDamage(playerName, this.getDamage());
         this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 
-    public void getDamage(int damage) {
-       this.getDamage(this.getName(), damage);
+    public void defence(String playerName, int damage) {
+       this.getDamage(playerName, damage);
     }
 
     @Override

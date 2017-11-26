@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class DamageBonusCreature extends Creature {
 
-    public DamageBonusCreature(int health, int damage, int defence) {
-        super(health, damage, defence);
+    public DamageBonusCreature(String name, int health, int damage, int defence) {
+        super(name, health, damage, defence);
     }
 
     public void addBonusDamage(String name, int baseDamage, int bonusPoint, int chance) {
