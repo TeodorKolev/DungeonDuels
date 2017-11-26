@@ -35,4 +35,14 @@ public class Creature {
     public void setDamage(int damage) {
         this.damage = damage;
     }
+
+    public void getDamage(String name, int damage) {
+        this.setHealth(this.getHealth() - damage);
+        System.out.println(name + " gets " + damage + " damage. Remaining life: " +
+                this.getHealth() + " health.");
+    }
+
+    public void doDamage(String name, int damage) {
+        System.out.println(name + " deal " + damage + " damage.");
+    }
 }

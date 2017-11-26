@@ -1,14 +1,12 @@
 package models;
 
 import constants.Constants;
-import interfaces.iAttackable;
 import interfaces.iCastable;
-import interfaces.iHurtable;
 import models.spells.Cleave;
 
 import java.util.Random;
 
-public class Warrior extends Creature implements iAttackable, iHurtable, iCastable {
+public class Warrior extends DamageBonusCreature implements iCastable {
 
     private String name;
     private Cleave specialCast = new Cleave(this.getDamage() / 2);
@@ -30,27 +28,25 @@ public class Warrior extends Creature implements iAttackable, iHurtable, iCastab
         this.name = name;
     }
 
-    @Override
     public void doDamage() {
-        System.out.println(this.getName() + " deal " + this.getDamage() + " damage.");
-        this.castSpecial();
+        this.addBonusDamage(this.getName(), this.getDamage(),
+                Constants.WARRIOR_DAMAGE_BONUS_POINT, Constants.WARRIOR_DAMAGE_BONUS_CHANCE);
+        this.castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
     }
 
-    @Override
     public void getDamage(int damage) {
-        this.setHealth(this.getHealth() - damage);
-        System.out.println(this.getName() + " gets " + damage + " damage. Remaining life: " +
-                this.getHealth() + " health.");
+        this.getDamage(this.getName(), damage);
     }
 
     @Override
-    public void castSpecial() {
+    public void castSpecial(int chance) {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
-        if (randomInt <= Constants.WARRIOR_CAST_SPECIAL_CHANCE) {
+        if (randomInt <= chance) {
             System.out.println(this.getName() + " cast " + this.getSpecialCast().getName() + " deal " +
                     this.getSpecialCast().getDamage() + " damage");
         }
 
     }
+
 }

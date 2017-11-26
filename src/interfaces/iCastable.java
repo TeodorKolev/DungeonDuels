@@ -2,6 +2,6 @@ package interfaces;
 
 public interface iCastable {
 
-    void castSpecial();
+    void castSpecial(int chance);
 
 }

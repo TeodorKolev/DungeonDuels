@@ -1,14 +1,12 @@
 package models;
 
 import constants.Constants;
-import interfaces.iAttackable;
 import interfaces.iCastable;
-import interfaces.iHurtable;
 import models.spells.LightingBold;
 
 import java.util.Random;
 
-public class Mage extends Creature implements iAttackable, iHurtable, iCastable {
+public class Mage extends Creature implements iCastable {
 
     private String name;
     private LightingBold specialCast = new LightingBold();
@@ -30,24 +28,20 @@ public class Mage extends Creature implements iAttackable, iHurtable, iCastable 
         this.name = name;
     }
 
-    @Override
     public void doDamage() {
-        System.out.println(this.getName() + " deal " + this.getDamage() + " damage.");
-        this.castSpecial();
+        this.doDamage(this.getName(), this.getDamage());
+        this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 
-    @Override
     public void getDamage(int damage) {
-        this.setHealth(this.getHealth() - damage);
-        System.out.println(this.getName() + " gets " + damage + " damage. Remaining life: " +
-                this.getHealth() + " health.");
+       this.getDamage(this.getName(), damage);
     }
 
     @Override
-    public void castSpecial() {
+    public void castSpecial(int chance) {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
-        if (randomInt <= Constants.MAGE_CAST_SPECIAL_CHANCE) {
+        if (randomInt <= chance) {
             System.out.println(this.getName() + " cast " + this.getSpecialCast().getName() + " deal " +
                     this.getSpecialCast().getDamage() + " damage");
         }

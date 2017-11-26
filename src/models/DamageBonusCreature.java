@@ -1,0 +1,23 @@
+package models;
+
+import java.util.Random;
+
+public class DamageBonusCreature extends Creature {
+
+    public DamageBonusCreature(int health, int damage, int defence) {
+        super(health, damage, defence);
+    }
+
+    public void addBonusDamage(String name, int baseDamage, int bonusPoint, int chance) {
+        Random r = new Random();
+        int randomInt = r.nextInt(100) + 1;
+        if (randomInt <= chance) {
+            baseDamage += bonusPoint;
+        }
+        if (randomInt <= (chance * 2)) {
+            baseDamage += bonusPoint;
+        }
+        System.out.println(name + " deal " + baseDamage + " damage.");
+    }
+
+}
