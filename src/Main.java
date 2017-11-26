@@ -1,5 +1,4 @@
-import models.Mage;
-import models.Warrior;
+import models.heroes.Warrior;
 
 public class Main {
 

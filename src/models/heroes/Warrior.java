@@ -1,22 +1,23 @@
-package models;
+package models.heroes;
 
 import constants.Constants;
 import interfaces.iCastable;
-import models.spells.LightingBold;
+import models.base.DamageBonusCreature;
+import models.spells.Cleave;
 
 import java.util.Random;
 
-public class Mage extends Creature implements iCastable {
+public class Warrior extends DamageBonusCreature implements iCastable {
 
     private String name;
-    private LightingBold specialCast = new LightingBold();
+    private Cleave specialCast = new Cleave(this.getDamage() / 2);
 
-    public Mage(String name) {
-        super(Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENCE);
+    public Warrior(String name) {
+        super(Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENCE);
         this.name = name;
     }
 
-    private LightingBold getSpecialCast() {
+    private Cleave getSpecialCast() {
         return specialCast;
     }
 
@@ -29,12 +30,13 @@ public class Mage extends Creature implements iCastable {
     }
 
     public void doDamage() {
-        this.doDamage(this.getName(), this.getDamage());
-        this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
+        this.addBonusDamage(this.getName(), this.getDamage(),
+                Constants.WARRIOR_DAMAGE_BONUS_POINT, Constants.WARRIOR_DAMAGE_BONUS_CHANCE);
+        this.castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
     }
 
     public void getDamage(int damage) {
-       this.getDamage(this.getName(), damage);
+        this.getDamage(this.getName(), damage);
     }
 
     @Override
@@ -47,4 +49,5 @@ public class Mage extends Creature implements iCastable {
         }
 
     }
+
 }

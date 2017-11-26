@@ -1,4 +1,4 @@
-package models;
+package models.heroes;
 
 public class Cleric {
 }
