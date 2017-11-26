@@ -1,6 +1,7 @@
 package models.spells;
 
 import constants.Constants;
+import models.base.SpecialPower;
 
 public class LightingBold extends SpecialPower {
 

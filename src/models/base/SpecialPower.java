@@ -1,4 +1,4 @@
-package models.spells;
+package models.base;
 
 public class SpecialPower {
 
