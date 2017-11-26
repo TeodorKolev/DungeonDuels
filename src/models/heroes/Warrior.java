@@ -30,6 +30,7 @@ public class Warrior extends DamageBonusCreature implements iCastable {
     }
 
     public void doDamage() {
+        System.out.println("weee");
         this.addBonusDamage(this.getName(), this.getDamage(),
                 Constants.WARRIOR_DAMAGE_BONUS_POINT, Constants.WARRIOR_DAMAGE_BONUS_CHANCE);
         this.castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
