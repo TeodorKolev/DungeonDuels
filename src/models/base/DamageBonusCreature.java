@@ -8,7 +8,7 @@ public class DamageBonusCreature extends Creature {
         super(name, health, damage, defence);
     }
 
-    public void addBonusDamage(String name, int baseDamage, int bonusPoint, int chance) {
+    public void addBonusDamage(String name, int baseDamage, int bonusPoint, int chance, String damageType) {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (randomInt <= chance) {

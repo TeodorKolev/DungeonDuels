@@ -1,10 +1,11 @@
 package models.spells;
 
+import constants.Constants;
 import models.base.SpecialPower;
 
 public class Cleave extends SpecialPower {
 
     public Cleave(int damage) {
-        super("Cleave", "Offensive", damage);
+        super("Cleave", Constants.DAMAGE_TYPE_MAGIC, damage);
     }
 }

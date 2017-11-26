@@ -20,7 +20,7 @@ public class Mage extends Creature implements iCastable {
     }
 
     public void attack(String playerName) {
-        this.doDamage(playerName, this.getDamage());
+        this.doDamage(playerName, this.getDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
         this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 

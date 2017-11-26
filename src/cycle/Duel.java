@@ -1,10 +1,8 @@
 package cycle;
 
-import models.base.Creature;
+import interfaces.iCastable;
 import models.base.Monster;
 import models.base.Player;
-import models.heroes.Mage;
-import models.heroes.Warrior;
 
 public class Duel {
 
@@ -44,7 +42,13 @@ public class Duel {
 
     public void start() {
         hero.attack();
+        if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
+            // TODO cast spell
+        }
         monster.attack();
+        if (iCastable.class.isAssignableFrom(monster.getCreature().getClass())) {
+            // TODO cast spell
+        }
     }
 
 }

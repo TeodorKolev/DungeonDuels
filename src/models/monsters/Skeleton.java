@@ -10,8 +10,11 @@ public class Skeleton extends DamageBonusCreature {
     }
 
     public void attack() {
-        this.addBonusDamage(this.getName(), this.getDamage(),
-                Constants.SKELETON_DAMAGE_BONUS_POINT, Constants.SKELETON_DAMAGE_BONUS_CHANCE);
+        this.addBonusDamage(this.getName(),
+                this.getDamage(),
+                Constants.SKELETON_DAMAGE_BONUS_POINT,
+                Constants.SKELETON_DAMAGE_BONUS_CHANCE,
+                Constants.DAMAGE_TYPE_PHYSICAL);
     }
 
     public void defense(int damage) {

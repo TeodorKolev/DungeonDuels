@@ -24,4 +24,7 @@ public class Constants {
 
     public static final int LIGHTING_BOLD_DAMAGE = 3;
 
+    public static final String DAMAGE_TYPE_PHYSICAL = "physical";
+    public static final String DAMAGE_TYPE_MAGIC = "magic";
+
 }

@@ -43,7 +43,7 @@ public class Creature extends Entity {
                 this.getHealth() + " health.");
     }
 
-    public void doDamage(String name, int damage) {
+    public void doDamage(String name, int damage, String damageType) {
         System.out.println(name + " deal " + damage + " damage.");
     }
 }
