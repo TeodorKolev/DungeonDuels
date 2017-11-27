@@ -1,6 +1,7 @@
 package models.base;
 
 import utils.Constants;
+import utils.Printer;
 
 public class Creature extends Entity {
 
@@ -31,7 +32,7 @@ public class Creature extends Entity {
         return damageTakenType;
     }
 
-    public void setDamageTakenType(String damageTakenType) {
+    private void setDamageTakenType(String damageTakenType) {
         this.damageTakenType = damageTakenType;
     }
 
@@ -47,11 +48,11 @@ public class Creature extends Entity {
         return damageTaken;
     }
 
-    public void setDamageTaken(int damageTaken) {
+    private void setDamageTaken(int damageTaken) {
         this.damageTaken = damageTaken;
     }
 
-    public int getDefence() {
+    private int getDefence() {
         return defence;
     }
 
@@ -59,15 +60,15 @@ public class Creature extends Entity {
         this.defence = defence;
     }
 
-    public int getHealth() {
+    private int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    private void setHealth(int health) {
         this.health = health;
     }
 
-    public int takeDamage() {
+    protected int takeDamage() {
         return damage;
     }
 
@@ -75,25 +76,23 @@ public class Creature extends Entity {
         this.damage = damage;
     }
 
-    public void takeDamage(String name, int damage, String damageType) {
+    protected void takeDamage(String name, int damage, String damageType) {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
             damageReduced = (damage - this.getDefence());
             this.setHealth(this.getHealth() - damageReduced);
             this.setDamageTaken(damageReduced);
             this.setDamageTakenType(damageType);
-            System.out.println(name + " gets " + damageReduced + " damage. Remaining life: " +
-                    this.getHealth() + " health.");
+            Printer.printTakeDamage(name, damageReduced, this.getHealth());
         } else  if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
             this.setDamageTaken(damage);
-            System.out.println(name + " gets " + damage + " damage. Remaining life: " +
-                    this.getHealth() + " health.");
+            Printer.printTakeDamage(name, damage, this.getHealth());
         }
     }
 
-    public void dealDamage(String name, int damage, String damageType) {
+    protected void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);
         this.setDamageDealtType(damageType);
-        System.out.println(name + " deal " + damage + " damage.");
+        Printer.printDealDamage(name, damage);
     }
 }
