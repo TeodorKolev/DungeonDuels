@@ -7,9 +7,9 @@ public class Creature extends Entity {
     private int health;
     private int damage;
     private int defence;
-    private int damageDone;
+    private int damageDealt;
     private int damageTaken;
-    private String damageDoneType;
+    private String damageDealtType;
     private String damageTakenType;
 
     public Creature(String name, int health, int damage, int defence) {
@@ -19,12 +19,12 @@ public class Creature extends Entity {
         this.defence = defence;
     }
 
-    public String getDamageDoneType() {
-        return damageDoneType;
+    public String getDamageDealtType() {
+        return damageDealtType;
     }
 
-    public void setDamageDoneType(String damageDoneType) {
-        this.damageDoneType = damageDoneType;
+    public void setDamageDealtType(String damageDealtType) {
+        this.damageDealtType = damageDealtType;
     }
 
     public String getDamageTakenType() {
@@ -35,12 +35,12 @@ public class Creature extends Entity {
         this.damageTakenType = damageTakenType;
     }
 
-    public int getDamageDone() {
-        return damageDone;
+    public int getDamageDealt() {
+        return damageDealt;
     }
 
-    public void setDamageDone(int damageDone) {
-        this.damageDone = damageDone;
+    public void setDamageDealt(int damageDealt) {
+        this.damageDealt = damageDealt;
     }
 
     public int getDamageTaken() {
@@ -92,8 +92,8 @@ public class Creature extends Entity {
     }
 
     public void dealDamage(String name, int damage, String damageType) {
-        this.setDamageDone(damage);
-        this.setDamageDoneType(damageType);
+        this.setDamageDealt(damage);
+        this.setDamageDealtType(damageType);
         System.out.println(name + " deal " + damage + " damage.");
     }
 }

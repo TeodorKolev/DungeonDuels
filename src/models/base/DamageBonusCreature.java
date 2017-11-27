@@ -17,8 +17,8 @@ public class DamageBonusCreature extends Creature {
         if (randomInt <= (chance * 2)) {
             baseDamage += bonusPoint;
         }
-        this.setDamageDone(baseDamage);
-        this.setDamageDoneType(damageType);
+        this.setDamageDealt(baseDamage);
+        this.setDamageDealtType(damageType);
         System.out.println(name + " deal " + baseDamage + " damage.");
     }
 

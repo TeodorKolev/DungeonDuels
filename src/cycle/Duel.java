@@ -8,8 +8,6 @@ public class Duel {
 
     private Player hero;
     private Monster monster;
-    private int heroDamageDone;
-    private int monsterDamageDone;
 
     private int round;
 
@@ -44,7 +42,7 @@ public class Duel {
 
     public void start() {
         hero.attack();
-        monster.defence(hero.getCreature().getDamageDone(), hero.getCreature().getDamageDoneType());
+        monster.defence(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
             // TODO cast spell
         }
