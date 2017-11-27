@@ -10,4 +10,8 @@ public class Printer {
         System.out.println(name + " gets " + damage + " damage. Remaining life: " + health + " health.");
     }
 
+    public static void printStartLogo() {
+        System.out.println(ASCIIArt.START_LOGO);
+    }
+
 }
