@@ -12,7 +12,7 @@ public class Warrior extends DamageBonusCreature implements iCastable {
     private Cleave specialCast = new Cleave(this.takeDamage() / 2);
 
     public Warrior() {
-        super ("Warrior", Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENCE);
+        super ("Warrior", Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
     }
 
     private Cleave getSpecialCast() {

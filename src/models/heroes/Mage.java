@@ -12,7 +12,7 @@ public class Mage extends Creature implements iCastable {
     private LightingBold specialCast = new LightingBold();
 
     public Mage() {
-        super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENCE);
+        super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
     }
 
     private LightingBold getSpecialCast() {
@@ -24,7 +24,7 @@ public class Mage extends Creature implements iCastable {
         this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 
-    public void defence(String playerName, int damage, String damageType) {
+    public void defense(String playerName, int damage, String damageType) {
        this.takeDamage(playerName, damage, damageType);
     }
 

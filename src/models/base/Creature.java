@@ -7,17 +7,17 @@ public class Creature extends Entity {
 
     private int health;
     private int damage;
-    private int defence;
+    private int defense;
     private int damageDealt;
     private int damageTaken;
     private String damageDealtType;
     private String damageTakenType;
 
-    public Creature(String name, int health, int damage, int defence) {
+    public Creature(String name, int health, int damage, int defense) {
         super(name);
         this.health = health;
         this.damage = damage;
-        this.defence = defence;
+        this.defense = defense;
     }
 
     public String getDamageDealtType() {
@@ -52,12 +52,12 @@ public class Creature extends Entity {
         this.damageTaken = damageTaken;
     }
 
-    private int getDefence() {
-        return defence;
+    private int getDefense() {
+        return defense;
     }
 
-    public void setDefence(int defence) {
-        this.defence = defence;
+    public void setDefense(int defense) {
+        this.defense = defense;
     }
 
     private int getHealth() {
@@ -79,7 +79,7 @@ public class Creature extends Entity {
     protected void takeDamage(String name, int damage, String damageType) {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
-            damageReduced = (damage - this.getDefence());
+            damageReduced = (damage - this.getDefense());
             this.setHealth(this.getHealth() - damageReduced);
             this.setDamageTaken(damageReduced);
             this.setDamageTakenType(damageType);

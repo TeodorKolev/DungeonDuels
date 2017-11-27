@@ -6,7 +6,7 @@ import models.base.DamageBonusCreature;
 public class Skeleton extends DamageBonusCreature {
 
     public Skeleton() {
-        super ("Skeleton", Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENCE);
+        super ("Skeleton", Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENSE);
     }
 
     public void attack() {

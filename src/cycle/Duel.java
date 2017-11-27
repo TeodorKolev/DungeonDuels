@@ -3,7 +3,6 @@ package cycle;
 import interfaces.iCastable;
 import models.base.Monster;
 import models.base.Player;
-import utils.Constants;
 import utils.Printer;
 
 public class Duel {
@@ -45,7 +44,7 @@ public class Duel {
     public void start() {
         Printer.printStartLogo();
         hero.attack();
-        monster.defence(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
+        monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
             // TODO cast spell
         }
