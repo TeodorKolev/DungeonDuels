@@ -25,9 +25,9 @@ public class Monster extends Entity {
         }
     }
 
-    public void defence(int damage){
+    public void defence(int damage, String damageType){
         if(creature instanceof Skeleton){
-            ((Skeleton) creature).defense(damage);
+            ((Skeleton) creature).defense(damage, damageType);
         }
     }
 

@@ -1,6 +1,6 @@
 package models.monsters;
 
-import constants.Constants;
+import utils.Constants;
 import models.base.DamageBonusCreature;
 
 public class Skeleton extends DamageBonusCreature {
@@ -11,14 +11,14 @@ public class Skeleton extends DamageBonusCreature {
 
     public void attack() {
         this.addBonusDamage(this.getName(),
-                this.getDamage(),
+                this.takeDamage(),
                 Constants.SKELETON_DAMAGE_BONUS_POINT,
                 Constants.SKELETON_DAMAGE_BONUS_CHANCE,
                 Constants.DAMAGE_TYPE_PHYSICAL);
     }
 
-    public void defense(int damage) {
-        this.getDamage(this.getName(), damage);
+    public void defense(int damage, String damageType) {
+        this.takeDamage(this.getName(), damage, damageType);
     }
 
 }

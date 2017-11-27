@@ -44,7 +44,7 @@ public class Duel {
 
     public void start() {
         hero.attack();
-        monster.defence(hero.getCreature().getDamageDone());
+        monster.defence(hero.getCreature().getDamageDone(), hero.getCreature().getDamageDoneType());
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
             // TODO cast spell
         }

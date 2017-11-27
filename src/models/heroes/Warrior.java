@@ -1,6 +1,6 @@
 package models.heroes;
 
-import constants.Constants;
+import utils.Constants;
 import interfaces.iCastable;
 import models.base.DamageBonusCreature;
 import models.spells.Cleave;
@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Warrior extends DamageBonusCreature implements iCastable {
 
-    private Cleave specialCast = new Cleave(this.getDamage() / 2);
+    private Cleave specialCast = new Cleave(this.takeDamage() / 2);
 
     public Warrior() {
         super ("Warrior", Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENCE);
@@ -21,15 +21,15 @@ public class Warrior extends DamageBonusCreature implements iCastable {
 
     public void attack(String playerName) {
         this.addBonusDamage(playerName,
-                this.getDamage(),
+                this.takeDamage(),
                 Constants.WARRIOR_DAMAGE_BONUS_POINT,
                 Constants.WARRIOR_DAMAGE_BONUS_CHANCE,
                 Constants.DAMAGE_TYPE_PHYSICAL);
         this.castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
     }
 
-    public void defense(String playerName, int damage) {
-        this.getDamage(playerName, damage);
+    public void defense(String playerName, int damage, String damageType) {
+        this.takeDamage(playerName, damage, damageType);
     }
 
     @Override

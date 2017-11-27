@@ -1,6 +1,6 @@
 package models.spells;
 
-import constants.Constants;
+import utils.Constants;
 import models.base.SpecialPower;
 
 public class Cleave extends SpecialPower {

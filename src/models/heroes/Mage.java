@@ -1,6 +1,6 @@
 package models.heroes;
 
-import constants.Constants;
+import utils.Constants;
 import interfaces.iCastable;
 import models.base.Creature;
 import models.spells.LightingBold;
@@ -20,12 +20,12 @@ public class Mage extends Creature implements iCastable {
     }
 
     public void attack(String playerName) {
-        this.doDamage(playerName, this.getDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
+        this.dealDamage(playerName, this.takeDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
         this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 
-    public void defence(String playerName, int damage) {
-       this.getDamage(playerName, damage);
+    public void defence(String playerName, int damage, String damageType) {
+       this.takeDamage(playerName, damage, damageType);
     }
 
     @Override

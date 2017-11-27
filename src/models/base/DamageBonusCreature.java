@@ -18,6 +18,7 @@ public class DamageBonusCreature extends Creature {
             baseDamage += bonusPoint;
         }
         this.setDamageDone(baseDamage);
+        this.setDamageDoneType(damageType);
         System.out.println(name + " deal " + baseDamage + " damage.");
     }
 
