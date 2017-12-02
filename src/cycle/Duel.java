@@ -42,13 +42,15 @@ public class Duel {
     }
 
     public void start() {
-        Printer.printStartLogo();
+        Printer.startLogo();
         hero.attack();
         monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
-            // TODO cast spell
+            hero.castSpecial();
+            monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
         }
         monster.attack();
+        hero.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(monster.getCreature().getClass())) {
             // TODO cast spell
         }

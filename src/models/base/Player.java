@@ -3,6 +3,7 @@ package models.base;
 import models.heroes.Cleric;
 import models.heroes.Mage;
 import models.heroes.Warrior;
+import utils.Constants;
 
 public class Player extends Entity {
 
@@ -26,6 +27,20 @@ public class Player extends Entity {
             ((Warrior) creature).attack(this.getName());
         } else if(creature instanceof Mage){
             ((Mage) creature).attack(this.getName());
+        }
+    }
+
+    public void defense(int damage, String damageType){
+        if(creature instanceof Warrior){
+            ((Warrior) creature).defense(this.getName(), damage, damageType);
+        }
+    }
+
+    public void castSpecial(){
+        if(creature instanceof Warrior){
+            ((Warrior) creature).castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
+        } else if(creature instanceof Mage){
+            ((Mage) creature).castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
         }
     }
 

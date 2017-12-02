@@ -80,19 +80,21 @@ public class Creature extends Entity {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
             damageReduced = (damage - this.getDefense());
-            this.setHealth(this.getHealth() - damageReduced);
             this.setDamageTaken(damageReduced);
+            this.setHealth(this.getHealth() - damageReduced);
             this.setDamageTakenType(damageType);
-            Printer.printTakeDamage(name, damageReduced, this.getHealth());
+            Printer.takeDamage(name, damageReduced, this.getHealth());
         } else  if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
             this.setDamageTaken(damage);
-            Printer.printTakeDamage(name, damage, this.getHealth());
+            this.setHealth(this.getHealth() - damage);
+            this.setDamageTakenType(damageType);
+            Printer.takeDamage(name, damage, this.getHealth());
         }
     }
 
     protected void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);
         this.setDamageDealtType(damageType);
-        Printer.printDealDamage(name, damage);
+        Printer.dealDamage(name, damage);
     }
 }

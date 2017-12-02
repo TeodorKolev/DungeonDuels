@@ -4,6 +4,7 @@ import utils.Constants;
 import interfaces.iCastable;
 import models.base.DamageBonusCreature;
 import models.spells.Cleave;
+import utils.Printer;
 
 import java.util.Random;
 
@@ -25,7 +26,6 @@ public class Warrior extends DamageBonusCreature implements iCastable {
                 Constants.WARRIOR_DAMAGE_BONUS_POINT,
                 Constants.WARRIOR_DAMAGE_BONUS_CHANCE,
                 Constants.DAMAGE_TYPE_PHYSICAL);
-        this.castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
     }
 
     public void defense(String playerName, int damage, String damageType) {
@@ -37,10 +37,11 @@ public class Warrior extends DamageBonusCreature implements iCastable {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (randomInt <= chance) {
-            System.out.println(this.getName() + " cast " + this.getSpecialCast().getName() + " deal " +
-                    this.getSpecialCast().getDamage() + " damage");
+            Printer.warriorCastSpecial(this.getName(), this.getSpecialCast().getName(),
+                    this.getSpecialCast().getDamage());
         }
-
+        this.setDamageDealt(this.getSpecialCast().getDamage());
+        this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
     }
 
 }
