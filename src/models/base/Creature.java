@@ -60,7 +60,7 @@ public class Creature extends Entity {
         this.defense = defense;
     }
 
-    private int getHealth() {
+    public int getHealth() {
         return health;
     }
 

@@ -22,4 +22,12 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void playerDefeatMonster(String playerName, String monsterName) {
+        System.out.println(playerName + " has defeated " + monsterName);
+    }
+
+    public static void monsterDefeatPlayer(String playerName) {
+        System.out.println(playerName + " is dead. Game Over! ");
+    }
+
 }
