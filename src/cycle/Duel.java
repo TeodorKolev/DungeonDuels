@@ -51,18 +51,24 @@ public class Duel {
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
             Random r = new Random();
             int randomInt = r.nextInt(100) + 1;
-            if (randomInt <= hero.getSpecialChance()) {
+            if (randomInt <= hero.getSpecialPowerCastChance()) {
                 hero.castSpecial();
                 if (hero.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
                     monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
                 }
             }
         }
-
         monster.attack();
         hero.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(monster.getCreature().getClass())) {
-            // TODO cast spell
+            Random r = new Random();
+            int randomInt = r.nextInt(100) + 1;
+            if (randomInt <= monster.getSpecialPowerCastChance()) {
+                monster.castSpecial();
+                if (monster.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    hero.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
+                }
+            }
         }
     }
 

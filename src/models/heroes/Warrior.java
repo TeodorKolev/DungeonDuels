@@ -9,14 +9,19 @@ import utils.Printer;
 
 public class Warrior extends DamageBonusCreature implements iCastable {
 
-    private Cleave specialCast = new Cleave(this.takeDamage() / 2);
+    private Cleave specialPower = new Cleave(this.takeDamage() / 2);
+    private int specialPowerCastChance;
 
     public Warrior() {
         super ("Warrior", Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
     }
 
-    public SpecialPower getSpecialCast() {
-        return specialCast;
+    public SpecialPower getSpecialPower() {
+        return specialPower;
+    }
+
+    public int getSpecialPowerCastChance() {
+        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
     }
 
     public void attack(String playerName) {
@@ -32,10 +37,10 @@ public class Warrior extends DamageBonusCreature implements iCastable {
     }
 
     @Override
-    public void castSpecial(int chance) {
-        this.setDamageDealt(this.getSpecialCast().getDamage());
+    public void castSpecial() {
+        this.setDamageDealt(this.getSpecialPower().getDamage());
         this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
-        Printer.warriorCastSpecial(this.getName(), this.getSpecialCast().getName(), this.getSpecialCast().getDamage());
+        Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
 }
 
 }

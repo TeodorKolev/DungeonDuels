@@ -1,16 +1,14 @@
 package models.base;
 
-import models.heroes.Cleric;
 import models.heroes.Mage;
 import models.heroes.Warrior;
-import utils.Constants;
 
-import java.util.Random;
 
 public class Player extends Entity {
 
     private Creature creature;
     private SpecialPower specialPower;
+    private int specialPowerCastChance;
 
     public Player(String name, Creature creature) {
         super(name);
@@ -21,16 +19,26 @@ public class Player extends Entity {
         return creature;
     }
 
+    public void setCreature(Creature creature) {
+        this.creature = creature;
+    }
+
     public SpecialPower getSpecialPower() {
+        if (creature instanceof Warrior) {
+            specialPower =  ((Warrior) creature).getSpecialPower();
+        } else if(creature instanceof Mage){
+            specialPower =  ((Mage) creature).getSpecialPower();
+        }
         return specialPower;
     }
 
-    public void setSpecialPower(SpecialPower specialPower) {
-        this.specialPower = specialPower;
-    }
-
-    public void setCreature(Creature creature) {
-        this.creature = creature;
+    public int getSpecialPowerCastChance() {
+        if (creature instanceof Warrior) {
+            specialPowerCastChance =  ((Warrior) creature).getSpecialPowerCastChance();
+        } else if(creature instanceof Mage){
+            specialPowerCastChance =  ((Mage) creature).getSpecialPowerCastChance();
+        }
+        return specialPowerCastChance;
     }
 
     public void attack(){
@@ -49,22 +57,10 @@ public class Player extends Entity {
 
     public void castSpecial(){
         if (creature instanceof Warrior) {
-            this.setSpecialPower(((Warrior) creature).getSpecialCast());
-            ((Warrior) creature).castSpecial(Constants.WARRIOR_CAST_SPECIAL_CHANCE);
+            ((Warrior) creature).castSpecial();
         } else if (creature instanceof Mage) {
-            this.setSpecialPower(((Mage) creature).getSpecialCast());
-            ((Mage) creature).castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
+            ((Mage) creature).castSpecial();
         }
-    }
-
-    public int getSpecialChance() {
-        int chance = 0;
-        if (creature instanceof Warrior) {
-            chance = Constants.WARRIOR_CAST_SPECIAL_CHANCE;
-        } else if(creature instanceof Mage){
-            chance = Constants.MAGE_CAST_SPECIAL_CHANCE;
-        }
-        return chance;
     }
 
 }

@@ -7,23 +7,25 @@ import models.base.Creature;
 import models.spells.LightingBold;
 import utils.Printer;
 
-import java.util.Random;
-
 public class Mage extends Creature implements iCastable {
 
-    private LightingBold specialCast = new LightingBold();
+    private LightingBold specialPower = new LightingBold();
+    private int specialPowerCastChance;
 
     public Mage() {
         super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
     }
 
-    public SpecialPower getSpecialCast() {
-        return specialCast;
+    public SpecialPower getSpecialPower() {
+        return specialPower;
+    }
+
+    public int getSpecialPowerCastChance() {
+        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
     }
 
     public void attack(String playerName) {
         this.dealDamage(playerName, this.takeDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
-        this.castSpecial(Constants.MAGE_CAST_SPECIAL_CHANCE);
     }
 
     public void defense(String playerName, int damage, String damageType) {
@@ -31,10 +33,10 @@ public class Mage extends Creature implements iCastable {
     }
 
     @Override
-    public void castSpecial(int chance) {
-        this.setDamageDealt(this.getSpecialCast().getDamage());
+    public void castSpecial() {
+        this.setDamageDealt(this.getSpecialPower().getDamage());
         this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
-        Printer.mageCastSpecial(this.getName(), this.getSpecialCast().getName(), this.getSpecialCast().getDamage());
+        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
 
     }
 }
