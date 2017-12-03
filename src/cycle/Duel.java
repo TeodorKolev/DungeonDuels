@@ -3,7 +3,10 @@ package cycle;
 import interfaces.iCastable;
 import models.base.Monster;
 import models.base.Player;
+import utils.Constants;
 import utils.Printer;
+
+import java.util.Random;
 
 public class Duel {
 
@@ -46,9 +49,16 @@ public class Duel {
         hero.attack();
         monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(hero.getCreature().getClass())) {
-            hero.castSpecial();
-            monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
+            Random r = new Random();
+            int randomInt = r.nextInt(100) + 1;
+            if (randomInt <= hero.getSpecialChance()) {
+                hero.castSpecial();
+                if (hero.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    monster.defense(hero.getCreature().getDamageDealt(), hero.getCreature().getDamageDealtType());
+                }
+            }
         }
+
         monster.attack();
         hero.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(monster.getCreature().getClass())) {

@@ -18,4 +18,8 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void mageCastSpecial(String name, String spellName, int spellDamageDealt) {
+        System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
+    }
+
 }

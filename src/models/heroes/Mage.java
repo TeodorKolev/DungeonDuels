@@ -1,9 +1,11 @@
 package models.heroes;
 
+import models.base.SpecialPower;
 import utils.Constants;
 import interfaces.iCastable;
 import models.base.Creature;
 import models.spells.LightingBold;
+import utils.Printer;
 
 import java.util.Random;
 
@@ -15,7 +17,7 @@ public class Mage extends Creature implements iCastable {
         super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
     }
 
-    private LightingBold getSpecialCast() {
+    public SpecialPower getSpecialCast() {
         return specialCast;
     }
 
@@ -30,12 +32,9 @@ public class Mage extends Creature implements iCastable {
 
     @Override
     public void castSpecial(int chance) {
-        Random r = new Random();
-        int randomInt = r.nextInt(100) + 1;
-        if (randomInt <= chance) {
-            System.out.println(this.getName() + " cast " + this.getSpecialCast().getName() + " deal " +
-                    this.getSpecialCast().getDamage() + " damage");
-        }
+        this.setDamageDealt(this.getSpecialCast().getDamage());
+        this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
+        Printer.mageCastSpecial(this.getName(), this.getSpecialCast().getName(), this.getSpecialCast().getDamage());
 
     }
 }

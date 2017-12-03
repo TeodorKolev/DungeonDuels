@@ -3,13 +3,14 @@ package models.base;
 public class SpecialPower extends Entity {
 
     private String type;
-
     private int damage;
+    private String target;
 
-    public SpecialPower(String name, String type, int damage) {
+    public SpecialPower(String name, String type, int damage, String target) {
         super(name);
         this.type = type;
         this.damage = damage;
+        this.target = target;
     }
 
     public int getDamage() {
@@ -27,4 +28,13 @@ public class SpecialPower extends Entity {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
+    }
+
 }
