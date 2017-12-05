@@ -1,27 +1,17 @@
 package models.heroes;
 
 import models.base.SpecialPower;
+import models.spells.Cleave;
 import utils.Constants;
 import interfaces.iCastable;
 import models.base.DamageBonusCreature;
-import models.spells.Cleave;
 import utils.Printer;
 
 public class Warrior extends DamageBonusCreature implements iCastable {
 
-    private Cleave specialPower = new Cleave(this.takeDamage() / 2);
-    private int specialPowerCastChance;
 
     public Warrior() {
-        super ("Warrior", Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
-    }
-
-    public SpecialPower getSpecialPower() {
-        return specialPower;
-    }
-
-    public int getSpecialPowerCastChance() {
-        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
+        super (Constants.WARRIOR, Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
     }
 
     public void attack(String playerName) {
@@ -37,10 +27,20 @@ public class Warrior extends DamageBonusCreature implements iCastable {
     }
 
     @Override
+    public SpecialPower getSpecialPower() {
+        return new Cleave(this.getDamage() / 2);
+    }
+
+    @Override
+    public int getSpecialPowerCastChance() {
+        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
+    }
+
+    @Override
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
         this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
         Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
-}
+    }
 
 }

@@ -92,14 +92,11 @@ public class Duel {
         }
     }
 
-    private void processDuel() {
-        System.out.println("Press Enter to continue\n");
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void processDuel() {
+        System.out.println("Press Enter to continue");
+        scanner.hasNextLine();
         if (scanner.hasNextLine()) {
+            scanner.nextLine();
             this.start();
         }
     }

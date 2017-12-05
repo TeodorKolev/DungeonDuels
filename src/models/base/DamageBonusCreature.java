@@ -1,5 +1,7 @@
 package models.base;
 
+import utils.Printer;
+
 import java.util.Random;
 
 public class DamageBonusCreature extends Creature {
@@ -19,7 +21,7 @@ public class DamageBonusCreature extends Creature {
         }
         this.setDamageDealt(baseDamage);
         this.setDamageDealtType(damageType);
-        System.out.println(name + " deal " + baseDamage + " damage.");
+        Printer.dealDamage(name, baseDamage);
     }
 
 }

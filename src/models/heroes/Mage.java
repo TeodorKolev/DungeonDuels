@@ -9,19 +9,8 @@ import utils.Printer;
 
 public class Mage extends Creature implements iCastable {
 
-    private LightingBold specialPower = new LightingBold();
-    private int specialPowerCastChance;
-
     public Mage() {
-        super("Mage", Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
-    }
-
-    public SpecialPower getSpecialPower() {
-        return specialPower;
-    }
-
-    public int getSpecialPowerCastChance() {
-        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
+        super(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
     }
 
     public void attack(String playerName) {
@@ -30,6 +19,16 @@ public class Mage extends Creature implements iCastable {
 
     public void defense(String playerName, int damage, String damageType) {
        this.takeDamage(playerName, damage, damageType);
+    }
+
+    @Override
+    public SpecialPower getSpecialPower() {
+        return new LightingBold();
+    }
+
+    @Override
+    public int getSpecialPowerCastChance() {
+        return Constants.MAGE_CAST_SPECIAL_CHANCE;
     }
 
     @Override
