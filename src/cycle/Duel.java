@@ -6,21 +6,21 @@ import models.base.Player;
 import utils.Constants;
 import utils.Printer;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Duel {
 
     private Player player;
-    private Monster monster;
+    private ArrayList<Monster> monsters;
     private Scanner scanner;
+    private Monster monster;
+    private int round = 0;
 
-    private int round;
-
-    public Duel(Player player, Monster monster) {
+    public Duel(Player player, ArrayList<Monster> monsters) {
         this.player = player;
-        this.monster = monster;
+        this.monsters = monsters;
         this.scanner = new Scanner(System.in);
     }
 
@@ -32,12 +32,20 @@ public class Duel {
         this.player = player;
     }
 
-    public Monster getMonster() {
-        return monster;
+    public ArrayList<Monster> getMonsters() {
+        return monsters;
+    }
+
+    public void setMonsters(ArrayList<Monster> monsters) {
+        this.monsters = monsters;
     }
 
     public void setMonster(Monster monster) {
         this.monster = monster;
+    }
+
+    public Monster getMonster(ArrayList<Monster> monsters, int position) {
+        return monsters.get(position);
     }
 
     public int getRound() {
@@ -49,6 +57,7 @@ public class Duel {
     }
 
     public void start() {
+        this.setMonster(this.getMonster(this.monsters, this.getRound()));
         player.attack();
         monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
         if (iCastable.class.isAssignableFrom(player.getCreature().getClass())) {
