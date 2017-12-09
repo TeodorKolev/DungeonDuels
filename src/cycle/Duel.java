@@ -1,6 +1,7 @@
 package cycle;
 
 import interfaces.iCastable;
+import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
 import utils.Constants;
@@ -28,24 +29,16 @@ public class Duel {
         return player;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-
     public ArrayList<Monster> getMonsters() {
         return monsters;
     }
 
-    public void setMonsters(ArrayList<Monster> monsters) {
-        this.monsters = monsters;
+    public void setMonster(ArrayList<Monster> monsters, int position) {
+         this.monster = monsters.get(position);
     }
 
-    public void setMonster(Monster monster) {
-        this.monster = monster;
-    }
-
-    public Monster getMonster(ArrayList<Monster> monsters, int position) {
-        return monsters.get(position);
+    public Monster getMonster() {
+        return monster;
     }
 
     public int getRound() {
@@ -57,53 +50,88 @@ public class Duel {
     }
 
     public void start() {
-        this.setMonster(this.getMonster(this.monsters, this.getRound()));
-        player.attack();
-        monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
-        if (iCastable.class.isAssignableFrom(player.getCreature().getClass())) {
-            this.castSpecial(player, monster, Boolean.TRUE);
-        }
-        if (monster.getCreature().getHealth() > 0) {
-            monster.attack();
-            player.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
-            if (iCastable.class.isAssignableFrom(monster.getCreature().getClass())) {
-                this.castSpecial(player, monster, Boolean.FALSE);
-            }
-            if (player.getCreature().getHealth() > 0) {
+        this.setMonster(this.getMonsters(), this.getRound());
+        this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
+    }
+
+    private void setUpDuel(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
+        this.playerTurn(player, monster);
+        if (isAlive(monster.getCreature())) {
+            this.monsterTurn(player, monster);
+            if (isAlive(player.getCreature())) {
                 this.processDuel(Boolean.TRUE);
             } else {
-                Printer.monsterDefeatPlayer(player.getName());
+                this.monsterDefeatPlayer(player);
             }
         } else {
-            Printer.playerDefeatMonster(player.getName(), monster.getCreature().getName());
-            this.setRound(this.getRound() + 1);
-            if (this.getRound() + 1 > this.monsters.size()) {
-                Printer.victory(this.getPlayer().getName());
-            } else {
-                this.setMonster(this.getMonster(this.monsters, this.getRound()));
-                this.player.replenishLife();
-                this.processDuel(Boolean.FALSE);
-            }
+            this.playerDefeatMonster(player, monster, round, monsters);
         }
     }
 
-    private void castSpecial(Player playerCreature, Monster monsterCreature, boolean heroCast) {
+    private boolean isAlive(Creature creature) {
+        return creature.getHealth() > 0;
+    }
+
+    private void monsterDefeatPlayer(Player player) {
+        Printer.monsterDefeatPlayer(player.getName());
+    }
+
+    private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
+        Printer.playerDefeatMonster(player.getName(), monster.getCreature().getName());
+        this.setRound(round + 1);
+        if (this.getRound() + 1 > monsters.size()) {
+            Printer.victory(player.getName());
+        } else {
+            this.faceNextEnemy(monsters, this.getRound(), player);
+        }
+    }
+
+    private boolean isPlayerCastable(Player player) {
+        return iCastable.class.isAssignableFrom(player.getCreature().getClass());
+    }
+
+    private boolean isMonsterCastable(Monster monster) {
+        return iCastable.class.isAssignableFrom(monster.getCreature().getClass());
+    }
+
+    private void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
+        setMonster(monsters, round);
+        player.replenishLife();
+        this.processDuel(Boolean.FALSE);
+    }
+
+    private void playerTurn(Player player, Monster monster) {
+        player.attack();
+        monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
+        if (isPlayerCastable(player)) {
+            this.castSpecial(player, monster, Boolean.TRUE);
+        }
+    }
+
+    private void monsterTurn(Player player, Monster monster) {
+        monster.attack();
+        player.defense(monster.getCreature().getDamageDealt(),
+                monster.getCreature().getDamageDealtType());
+        if (isMonsterCastable(monster)) {
+            this.castSpecial(player, monster, Boolean.FALSE);
+        }
+    }
+
+    private void castSpecial(Player player, Monster monster, boolean heroCast) {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
-            if (randomInt <= playerCreature.getSpecialPowerCastChance()) {
-                playerCreature.castSpecial();
-                if (playerCreature.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    monsterCreature.defense(playerCreature.getCreature().getDamageDealt(),
-                            playerCreature.getCreature().getDamageDealtType());
+            if (randomInt <= player.getSpecialPowerCastChance()) {
+                player.castSpecial();
+                if (player.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
                 }
             }
         } else {
-            if (randomInt <= monsterCreature.getSpecialPowerCastChance()) {
-                monsterCreature.castSpecial();
-                if (monsterCreature.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    playerCreature.defense(monsterCreature.getCreature().getDamageDealt(),
-                            monsterCreature.getCreature().getDamageDealtType());
+            if (randomInt <= monster.getSpecialPowerCastChance()) {
+                monster.castSpecial();
+                if (monster.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    player.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
                 }
             }
         }
