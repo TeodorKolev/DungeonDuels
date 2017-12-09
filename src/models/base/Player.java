@@ -2,6 +2,7 @@ package models.base;
 
 import models.heroes.Mage;
 import models.heroes.Warrior;
+import utils.Constants;
 
 
 public class Player extends Entity {
@@ -60,6 +61,14 @@ public class Player extends Entity {
             ((Warrior) creature).castSpecial();
         } else if (creature instanceof Mage) {
             ((Mage) creature).castSpecial();
+        }
+    }
+
+    public void replenishLife() {
+        if (creature instanceof Warrior) {
+            ((Warrior) creature).setHealth(Constants.WARRIOR_HEALTH);
+        } else if (creature instanceof Mage) {
+            ((Mage) creature).setHealth(Constants.MAGE_HEALTH);
         }
     }
 

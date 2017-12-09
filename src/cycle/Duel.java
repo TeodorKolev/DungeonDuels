@@ -70,12 +70,20 @@ public class Duel {
                 this.castSpecial(player, monster, Boolean.FALSE);
             }
             if (player.getCreature().getHealth() > 0) {
-                this.processDuel();
+                this.processDuel(Boolean.TRUE);
             } else {
                 Printer.monsterDefeatPlayer(player.getName());
             }
         } else {
             Printer.playerDefeatMonster(player.getName(), monster.getCreature().getName());
+            this.setRound(this.getRound() + 1);
+            if (this.getRound() + 1 > this.monsters.size()) {
+                Printer.victory(this.getPlayer().getName());
+            } else {
+                this.setMonster(this.getMonster(this.monsters, this.getRound()));
+                this.player.replenishLife();
+                this.processDuel(Boolean.FALSE);
+            }
         }
     }
 
@@ -101,8 +109,12 @@ public class Duel {
         }
     }
 
-    public void processDuel() {
-        System.out.println("Press Enter to continue");
+    public void processDuel(boolean phase) {
+        if (phase == Boolean.TRUE) {
+            Printer.processDuelPhase();
+        } else {
+            Printer.stepDeeper();
+        }
         scanner.hasNextLine();
         if (scanner.hasNextLine()) {
             scanner.nextLine();

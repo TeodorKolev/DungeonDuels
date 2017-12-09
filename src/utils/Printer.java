@@ -22,12 +22,30 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void stepDeeper() {
+        System.out.println("Press Enter to step deeper in the dungeon...");
+    }
+
+    public static void processDuelPhase() {
+        System.out.println("Press Enter to process next duel phase...");
+    }
+
     public static void playerDefeatMonster(String playerName, String monsterName) {
-        System.out.println(playerName + " has defeated " + monsterName);
+        System.out.println("==================== " + playerName + " has defeated " + monsterName + " ====================");
     }
 
     public static void monsterDefeatPlayer(String playerName) {
-        System.out.println(playerName + " is dead. Game Over! ");
+        System.out.println("============================================================");
+        System.out.println("====================  Game Over ====================");
+        System.out.println("==================== " + playerName + " is dead. ====================");
+        System.out.println("============================================================");
+    }
+
+    public static void victory(String playerName) {
+        System.out.println("============================================================");
+        System.out.println("==================== Congratulations!!! ====================");
+        System.out.println("==================== " + playerName + " is now master of the dungeon! ====================");
+        System.out.println("============================================================");
     }
 
 }
