@@ -25,31 +25,32 @@ public class Duel {
         this.scanner = new Scanner(System.in);
     }
 
-    public Player getPlayer() {
+    private Player getPlayer() {
         return player;
     }
 
-    public ArrayList<Monster> getMonsters() {
+    private ArrayList<Monster> getMonsters() {
         return monsters;
     }
 
-    public void setMonster(ArrayList<Monster> monsters, int position) {
+    private void setMonster(ArrayList<Monster> monsters, int position) {
          this.monster = monsters.get(position);
     }
 
-    public Monster getMonster() {
+    private Monster getMonster() {
         return monster;
     }
 
-    public int getRound() {
+    private int getRound() {
         return round;
     }
 
-    public void setRound(int round) {
+    private void setRound(int round) {
         this.round = round;
     }
 
-    public void start() {
+    private void start() {
+        // TODO refactor just for start
         this.setMonster(this.getMonsters(), this.getRound());
         this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
     }
@@ -146,6 +147,7 @@ public class Duel {
         scanner.hasNextLine();
         if (scanner.hasNextLine()) {
             scanner.nextLine();
+            // TODO distinguish start from levels
             this.start();
         }
     }

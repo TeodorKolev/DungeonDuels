@@ -13,6 +13,12 @@ public class SpecialPower extends Entity {
         this.target = target;
     }
 
+    public SpecialPower(String name, String type, String target) {
+        super(name);
+        this.type = type;
+        this.target = target;
+    }
+
     public int getDamage() {
         return damage;
     }

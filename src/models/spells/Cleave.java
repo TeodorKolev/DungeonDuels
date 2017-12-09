@@ -5,7 +5,20 @@ import models.base.SpecialPower;
 
 public class Cleave extends SpecialPower {
 
+    private int damage;
+
     public Cleave(int damage) {
-        super("Cleave", Constants.DAMAGE_TYPE_MAGIC, damage, Constants.TARGET_ENEMY);
+        super(Constants.CLEAVE, Constants.DAMAGE_TYPE_MAGIC, Constants.TARGET_ENEMY);
+        this.damage = damage;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+    @Override
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 }

@@ -20,10 +20,6 @@ public class Player extends Entity {
         return creature;
     }
 
-    public void setCreature(Creature creature) {
-        this.creature = creature;
-    }
-
     public SpecialPower getSpecialPower() {
         if (creature instanceof Warrior) {
             specialPower =  ((Warrior) creature).getSpecialPower();
@@ -66,9 +62,9 @@ public class Player extends Entity {
 
     public void replenishLife() {
         if (creature instanceof Warrior) {
-            ((Warrior) creature).setHealth(Constants.WARRIOR_HEALTH);
+            (creature).setHealth(Constants.WARRIOR_HEALTH);
         } else if (creature instanceof Mage) {
-            ((Mage) creature).setHealth(Constants.MAGE_HEALTH);
+            (creature).setHealth(Constants.MAGE_HEALTH);
         }
     }
 

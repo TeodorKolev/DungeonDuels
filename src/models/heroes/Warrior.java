@@ -39,7 +39,7 @@ public class Warrior extends DamageBonusCreature implements iCastable {
     @Override
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
+        this.setDamageDealtType(this.getSpecialPower().getType());
         Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
     }
 

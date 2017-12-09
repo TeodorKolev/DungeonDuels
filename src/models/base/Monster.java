@@ -19,10 +19,6 @@ public class Monster extends Entity {
         return creature;
     }
 
-    public void setCreature(Creature creature) {
-        this.creature = creature;
-    }
-
     public void attack() {
         if (creature instanceof Skeleton) {
             ((Skeleton) creature).attack();

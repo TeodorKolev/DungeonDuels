@@ -34,7 +34,7 @@ public class Mage extends Creature implements iCastable {
     @Override
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
+        this.setDamageDealtType(this.getSpecialPower().getType());
         Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
 
     }

@@ -10,7 +10,7 @@ import utils.Printer;
 public class GiantSpider extends DamageBonusCreature implements iCastable {
 
     public GiantSpider() {
-        super ("Giant Spider", Constants.GIANT_SPIDER_HEALTH, Constants.GIANT_SPIDER_DAMAGE,
+        super (Constants.GIANT_SPIDER, Constants.GIANT_SPIDER_HEALTH, Constants.GIANT_SPIDER_DAMAGE,
                 Constants.GIANT_SPIDER_DEFENSE);
     }
 
@@ -39,7 +39,7 @@ public class GiantSpider extends DamageBonusCreature implements iCastable {
     @Override
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(Constants.DAMAGE_TYPE_MAGIC);
+        this.setDamageDealtType(this.getSpecialPower().getType());
         Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
     }
 }

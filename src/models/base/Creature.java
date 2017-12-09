@@ -11,7 +11,6 @@ public class Creature extends Entity {
     private int damageDealt;
     private int damageTaken;
     private String damageDealtType;
-    private String damageTakenType;
 
     public Creature(String name, int health, int damage, int defense) {
         super(name);
@@ -24,23 +23,15 @@ public class Creature extends Entity {
         return damageDealtType;
     }
 
-    public void setDamageDealtType(String damageDealtType) {
+    protected void setDamageDealtType(String damageDealtType) {
         this.damageDealtType = damageDealtType;
-    }
-
-    public String getDamageTakenType() {
-        return damageTakenType;
-    }
-
-    private void setDamageTakenType(String damageTakenType) {
-        this.damageTakenType = damageTakenType;
     }
 
     public int getDamageDealt() {
         return damageDealt;
     }
 
-    public void setDamageDealt(int damageDealt) {
+    protected void setDamageDealt(int damageDealt) {
         this.damageDealt = damageDealt;
     }
 
@@ -86,12 +77,10 @@ public class Creature extends Entity {
             damageReduced = (damage - this.getDefense());
             this.setDamageTaken(damageReduced);
             this.setHealth(this.getHealth() - damageReduced);
-            this.setDamageTakenType(damageType);
             Printer.takeDamage(name, damageReduced, this.getHealth());
         } else  if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
             this.setDamageTaken(damage);
             this.setHealth(this.getHealth() - damage);
-            this.setDamageTakenType(damageType);
             Printer.takeDamage(name, damage, this.getHealth());
         }
     }
