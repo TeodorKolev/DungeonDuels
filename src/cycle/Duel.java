@@ -123,13 +123,11 @@ public class Duel {
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
             if (player instanceof ISpellCaster) {
-                if (randomInt <= ((ISpellCaster) player).getSpecialPowerCastChance()) {
+                if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
                     ((ISpellCaster) player).castSpecial();
                     if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
                         monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                     }
-                } else {
-                    throw new IllegalArgumentException();
                 }
             }
         } else {

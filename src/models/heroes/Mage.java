@@ -4,24 +4,18 @@ import models.base.Player;
 import models.base.SpecialPower;
 import utils.Constants;
 import interfaces.ISpellCaster;
-import models.base.Creature;
 import models.spells.LightingBold;
 import utils.Printer;
 
 public class Mage extends Player implements ISpellCaster {
 
     private String name;
-    private Creature creature;
     private SpecialPower lightingBold;
 
     public Mage(String name) {
-        super(name);
-        this.creature = new Creature(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
+        super(name, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
+        this.name = name;
         this.lightingBold = new LightingBold();
-    }
-
-    public Creature getCreature() {
-        return creature;
     }
 
     public String getName() {
@@ -30,19 +24,18 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public void attack() {
-        this.getCreature().dealDamage(this.getName(),
-                this.getCreature().getDamage(), this.getCreature().getDamageDealtType());
+        this.dealDamage(this.getName(), this.getDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
     }
 
     @Override
     public void defense(int monsterDamage, String monsterDamageType) {
-        this.getCreature().takeDamage(this.getName(),
+        this.takeDamage(this.getName(),
                 monsterDamage, monsterDamageType);
     }
 
     @Override
     public void replenishLife() {
-        this.getCreature().setHealth(Constants.MAGE_HEALTH);
+        this.setHealth(Constants.MAGE_HEALTH);
     }
 
     @Override
@@ -57,9 +50,9 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public void castSpecial() {
-        this.getCreature().setDamageDealt(this.getSpecialPower().getDamage());
-        this.getCreature().setDamageDealtType(this.getSpecialPower().getType());
-        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getCreature().getDamageDealt());
+        this.setDamageDealt(this.getSpecialPower().getDamage());
+        this.setDamageDealtType(this.getSpecialPower().getType());
+        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getDamageDealt());
 
     }
 

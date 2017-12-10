@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Mage mage = new Mage("Mage");
+        Mage mage = new Mage("MagaMan");
         ArrayList<Monster> monsters = new ArrayList<>();
         Monster giantSpider = new Monster(new GiantSpider());
         Monster skeleton = new Monster(new Skeleton());

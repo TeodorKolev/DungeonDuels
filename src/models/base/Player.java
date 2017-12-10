@@ -2,8 +2,8 @@ package models.base;
 
 public abstract class Player extends Creature {
 
-    public Player(String name) {
-        super(name);
+    public Player(String name, int health, int damage, int defence) {
+        super(name, health, damage, defence);
     }
 
     public abstract void attack();
