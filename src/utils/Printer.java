@@ -22,6 +22,10 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void giantSpiderCastSpecial(String name, String spellName, int spellDamageDealt) {
+        System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
+    }
+
     public static void stepDeeper() {
         System.out.println("Press Enter to step deeper in the dungeon...");
     }

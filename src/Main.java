@@ -14,10 +14,10 @@ public class Main {
 
         Warrior mage = new Warrior("MagaMan");
         ArrayList<Monster> monsters = new ArrayList<>();
-        Monster giantSpider = new Monster(new GiantSpider());
-        Monster skeleton = new Monster(new Skeleton());
-        monsters.add(giantSpider);
+        Skeleton skeleton = new Skeleton();
+        GiantSpider giantSpider = new GiantSpider();
         monsters.add(skeleton);
+        monsters.add(giantSpider);
         Duel duel = new Duel(mage, monsters);
         Printer.startLogo();
         duel.processDuel(Boolean.FALSE);

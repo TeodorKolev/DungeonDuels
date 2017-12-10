@@ -58,7 +58,7 @@ public class Duel {
 
     private void setUpDuel(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         this.playerTurn(player, monster);
-        if (isAlive(monster.getCreature())) {
+        if (isAlive(monster)) {
             this.monsterTurn(player, monster);
             if (isAlive(player)) {
                 this.processDuel(Boolean.TRUE);
@@ -79,21 +79,13 @@ public class Duel {
     }
 
     private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
-        Printer.playerDefeatMonster(player.getName(), monster.getCreature().getName());
+        Printer.playerDefeatMonster(player.getName(), monster.getName());
         this.setRound(round + 1);
         if (this.getRound() + 1 > monsters.size()) {
             Printer.victory(player.getName());
         } else {
             this.faceNextEnemy(monsters, this.getRound(), player);
         }
-    }
-
-    private boolean isPlayerCastable(Player player) {
-        return ISpellCaster.class.isAssignableFrom(player.getClass());
-    }
-
-    private boolean isMonsterCastable(Monster monster) {
-        return ISpellCaster.class.isAssignableFrom(monster.getCreature().getClass());
     }
 
     private void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
@@ -103,26 +95,38 @@ public class Duel {
     }
 
     private void playerTurn(Player player, Monster monster) {
-        if (player instanceof IBonusDamager) {
-            Random r = new Random();
-            int randomInt = r.nextInt(100) + 1;
-            ((IBonusDamager) player).empowerAttack(randomInt);
-            ((IBonusDamager) player).resetDamage();
-        } else {
-            player.attack();
-        }
+        this.attack(player, monster, Boolean.TRUE);
         monster.defense(player.getDamageDealt(), player.getDamageDealtType());
-        if (isPlayerCastable(player)) {
+        if (player instanceof ISpellCaster) {
             this.castSpecial(player, monster, Boolean.TRUE);
         }
     }
 
     private void monsterTurn(Player player, Monster monster) {
-        monster.attack();
-        player.defense(monster.getCreature().getDamageDealt(),
-                monster.getCreature().getDamageDealtType());
-        if (isMonsterCastable(monster)) {
+        this.attack(player, monster, Boolean.FALSE);
+        player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
+        if (monster instanceof ISpellCaster) {
             this.castSpecial(player, monster, Boolean.FALSE);
+        }
+    }
+
+    private void attack(Player player, Monster monster, boolean heroCast) {
+        Random r = new Random();
+        int randomInt = r.nextInt(100) + 1;
+        if (heroCast) {
+            if (player instanceof IBonusDamager) {
+                ((IBonusDamager) player).empowerAttack(randomInt);
+                ((IBonusDamager) player).resetDamage();
+            } else {
+                player.attack();
+            }
+        } else {
+            if (monster instanceof IBonusDamager) {
+                ((IBonusDamager) monster).empowerAttack(randomInt);
+                ((IBonusDamager) monster).resetDamage();
+            } else {
+                monster.attack();
+            }
         }
     }
 
@@ -130,19 +134,17 @@ public class Duel {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
-            if (player instanceof ISpellCaster) {
-                if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
-                    ((ISpellCaster) player).castSpecial();
-                    if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                        monster.defense(player.getDamageDealt(), player.getDamageDealtType());
-                    }
+            if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
+                ((ISpellCaster) player).castSpecial();
+                if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             }
         } else {
-            if (randomInt <= monster.getSpecialPowerCastChance()) {
-                monster.castSpecial();
-                if (monster.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    player.defense(monster.getCreature().getDamageDealt(), monster.getCreature().getDamageDealtType());
+            if (randomInt <= (((ISpellCaster) monster).getSpecialPowerCastChance())) {
+                ((ISpellCaster) monster).castSpecial();
+                if (((ISpellCaster) monster).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                    player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
                 }
             }
         }

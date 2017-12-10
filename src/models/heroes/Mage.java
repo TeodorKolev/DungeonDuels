@@ -31,8 +31,7 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public void defense(int monsterDamage, String monsterDamageType) {
-        this.takeDamage(this.getName(),
-                monsterDamage, monsterDamageType);
+        this.takeDamage(this.getName(), monsterDamage, monsterDamageType);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class Mage extends Player implements ISpellCaster {
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
         this.setDamageDealtType(this.getSpecialPower().getType());
-        Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
+        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
     }
 
 

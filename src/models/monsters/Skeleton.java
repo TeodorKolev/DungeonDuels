@@ -1,24 +1,48 @@
 package models.monsters;
 
+import interfaces.IBonusDamager;
+import models.base.Monster;
 import utils.Constants;
-import models.base.DamageBonusCreature;
 
-public class Skeleton extends DamageBonusCreature {
+public class Skeleton extends Monster implements IBonusDamager {
+
+    private int bonusDamageChance;
 
     public Skeleton() {
-        super ("Skeleton", Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENSE);
+        super (Constants.SKELETON, Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENSE);
+        this.bonusDamageChance = Constants.SKELETON_DAMAGE_BONUS_CHANCE;
     }
 
+    public int getBonusDamageChance() {
+        return bonusDamageChance;
+    }
+
+    @Override
     public void attack() {
-        this.addBonusDamage(this.getName(),
-                this.takeDamage(),
-                Constants.SKELETON_DAMAGE_BONUS_POINT,
-                Constants.SKELETON_DAMAGE_BONUS_CHANCE,
-                Constants.DAMAGE_TYPE_PHYSICAL);
+        this.dealDamage(this.getName(), this.getDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
     }
 
-    public void defense(int damage, String damageType) {
-        this.takeDamage(this.getName(), damage, damageType);
+    @Override
+    public void defense(int playerDamage, String playerDamageType) {
+        this.takeDamage(this.getName(), playerDamage, playerDamageType);
     }
 
+    @Override
+    public void empowerAttack(int chance) {
+        if (chance <= (this.getBonusDamageChance() * 2)) {
+            this.setDamage(this.getDamage() + Constants.SKELETON_DAMAGE_BONUS_POINT);
+            if (chance <= this.getBonusDamageChance()) {
+                this.setDamage(this.getDamage() + Constants.SKELETON_DAMAGE_BONUS_POINT);
+            }
+        }
+        else {
+            this.resetDamage();
+        }
+        this.attack();
+    }
+
+    @Override
+    public void resetDamage() {
+        this.setDamage(Constants.SKELETON_DAMAGE);
+    }
 }
