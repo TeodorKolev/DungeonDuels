@@ -59,7 +59,7 @@ public class Duel {
         this.playerTurn(player, monster);
         if (isAlive(monster.getCreature())) {
             this.monsterTurn(player, monster);
-            if (isAlive(player.getCreature())) {
+            if (isAlive(player)) {
                 this.processDuel(Boolean.TRUE);
             } else {
                 this.monsterDefeatPlayer(player);
@@ -88,7 +88,7 @@ public class Duel {
     }
 
     private boolean isPlayerCastable(Player player) {
-        return iCastable.class.isAssignableFrom(player.getCreature().getClass());
+        return iCastable.class.isAssignableFrom(player.getClass());
     }
 
     private boolean isMonsterCastable(Monster monster) {
@@ -103,7 +103,7 @@ public class Duel {
 
     private void playerTurn(Player player, Monster monster) {
         player.attack();
-        monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
+        monster.defense(player.getDamageDealt(), player.getDamageDealtType());
         if (isPlayerCastable(player)) {
             this.castSpecial(player, monster, Boolean.TRUE);
         }
@@ -125,7 +125,7 @@ public class Duel {
             if (randomInt <= player.getSpecialPowerCastChance()) {
                 player.castSpecial();
                 if (player.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    monster.defense(player.getCreature().getDamageDealt(), player.getCreature().getDamageDealtType());
+                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             }
         } else {

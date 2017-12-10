@@ -1,5 +1,6 @@
 package models.heroes;
 
+import models.base.Player;
 import models.base.SpecialPower;
 import utils.Constants;
 import interfaces.iCastable;
@@ -7,23 +8,51 @@ import models.base.Creature;
 import models.spells.LightingBold;
 import utils.Printer;
 
-public class Mage extends Creature implements iCastable {
+public class Mage extends Player implements iCastable {
 
-    public Mage() {
-        super(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
+    private String name;
+    private Creature creature;
+    private SpecialPower lightingBold;
+
+    public Mage(String name) {
+        super(name);
+        this.creature = new Creature(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
+        this.lightingBold = new LightingBold();
     }
 
-    public void attack(String playerName) {
-        this.dealDamage(playerName, this.takeDamage(), Constants.DAMAGE_TYPE_PHYSICAL);
+    public Creature getCreature() {
+        return creature;
     }
 
-    public void defense(String playerName, int damage, String damageType) {
-       this.takeDamage(playerName, damage, damageType);
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void attack() {
+        this.getCreature().dealDamage(this.getName(),
+                this.getCreature().getDamage(), this.getCreature().getDamageDealtType());
+    }
+
+    @Override
+    public void defense(int monsterDamage, String monsterDamageType) {
+        this.getCreature().takeDamage(this.getName(),
+                monsterDamage, monsterDamageType);
+    }
+
+    @Override
+    public void replenishLife() {
+        this.getCreature().setHealth(Constants.MAGE_HEALTH);
+    }
+
+    @Override
+    public Class getClassInstance() {
+        return this.getClass();
     }
 
     @Override
     public SpecialPower getSpecialPower() {
-        return new LightingBold();
+        return lightingBold;
     }
 
     @Override
@@ -33,9 +62,11 @@ public class Mage extends Creature implements iCastable {
 
     @Override
     public void castSpecial() {
-        this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(this.getSpecialPower().getType());
-        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
+        this.getCreature().setDamageDealt(this.getSpecialPower().getDamage());
+        this.getCreature().setDamageDealtType(this.getSpecialPower().getType());
+        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getCreature().getDamageDealt());
 
     }
+
+
 }

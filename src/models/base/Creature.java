@@ -11,6 +11,7 @@ public class Creature extends Entity {
     private int damageDealt;
     private int damageTaken;
     private String damageDealtType;
+    private String damageTakenType;
 
     public Creature(String name, int health, int damage, int defense) {
         super(name);
@@ -19,11 +20,19 @@ public class Creature extends Entity {
         this.defense = defense;
     }
 
+    public Creature(String name) {
+        super(name);
+    }
+
+    public String getDamageTakenType() {
+        return damageTakenType;
+    }
+
     public String getDamageDealtType() {
         return damageDealtType;
     }
 
-    protected void setDamageDealtType(String damageDealtType) {
+    public void setDamageDealtType(String damageDealtType) {
         this.damageDealtType = damageDealtType;
     }
 
@@ -31,7 +40,7 @@ public class Creature extends Entity {
         return damageDealt;
     }
 
-    protected void setDamageDealt(int damageDealt) {
+    public void setDamageDealt(int damageDealt) {
         this.damageDealt = damageDealt;
     }
 
@@ -71,7 +80,7 @@ public class Creature extends Entity {
         this.damage = damage;
     }
 
-    protected void takeDamage(String name, int damage, String damageType) {
+    public void takeDamage(String name, int damage, String damageType) {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
             damageReduced = (damage - this.getDefense());
@@ -85,7 +94,7 @@ public class Creature extends Entity {
         }
     }
 
-    protected void dealDamage(String name, int damage, String damageType) {
+    public void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);
         this.setDamageDealtType(damageType);
         Printer.dealDamage(name, damage);
