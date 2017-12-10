@@ -3,12 +3,12 @@ package models.heroes;
 import models.base.Player;
 import models.base.SpecialPower;
 import utils.Constants;
-import interfaces.iCastable;
+import interfaces.ISpellCaster;
 import models.base.Creature;
 import models.spells.LightingBold;
 import utils.Printer;
 
-public class Mage extends Player implements iCastable {
+public class Mage extends Player implements ISpellCaster {
 
     private String name;
     private Creature creature;
@@ -43,11 +43,6 @@ public class Mage extends Player implements iCastable {
     @Override
     public void replenishLife() {
         this.getCreature().setHealth(Constants.MAGE_HEALTH);
-    }
-
-    @Override
-    public Class getClassInstance() {
-        return this.getClass();
     }
 
     @Override

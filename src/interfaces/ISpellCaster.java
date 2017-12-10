@@ -2,7 +2,7 @@ package interfaces;
 
 import models.base.SpecialPower;
 
-public interface iCastable {
+public interface ISpellCaster {
 
     SpecialPower getSpecialPower();
 

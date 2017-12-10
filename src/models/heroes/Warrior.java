@@ -3,11 +3,11 @@ package models.heroes;
 import models.base.SpecialPower;
 import models.spells.Cleave;
 import utils.Constants;
-import interfaces.iCastable;
+import interfaces.ISpellCaster;
 import models.base.DamageBonusCreature;
 import utils.Printer;
 
-public class Warrior extends DamageBonusCreature implements iCastable {
+public class Warrior extends DamageBonusCreature implements ISpellCaster {
 
 
     public Warrior() {

@@ -1,6 +1,6 @@
 package cycle;
 
-import interfaces.iCastable;
+import interfaces.ISpellCaster;
 import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
@@ -88,11 +88,11 @@ public class Duel {
     }
 
     private boolean isPlayerCastable(Player player) {
-        return iCastable.class.isAssignableFrom(player.getClass());
+        return ISpellCaster.class.isAssignableFrom(player.getClass());
     }
 
     private boolean isMonsterCastable(Monster monster) {
-        return iCastable.class.isAssignableFrom(monster.getCreature().getClass());
+        return ISpellCaster.class.isAssignableFrom(monster.getCreature().getClass());
     }
 
     private void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
@@ -122,10 +122,14 @@ public class Duel {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
-            if (randomInt <= player.getSpecialPowerCastChance()) {
-                player.castSpecial();
-                if (player.getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
+            if (player instanceof ISpellCaster) {
+                if (randomInt <= ((ISpellCaster) player).getSpecialPowerCastChance()) {
+                    ((ISpellCaster) player).castSpecial();
+                    if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                        monster.defense(player.getDamageDealt(), player.getDamageDealtType());
+                    }
+                } else {
+                    throw new IllegalArgumentException();
                 }
             }
         } else {

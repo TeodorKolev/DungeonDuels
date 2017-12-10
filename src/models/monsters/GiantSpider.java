@@ -1,13 +1,13 @@
 package models.monsters;
 
-import interfaces.iCastable;
+import interfaces.ISpellCaster;
 import models.base.DamageBonusCreature;
 import models.base.SpecialPower;
 import models.spells.SpiderVenom;
 import utils.Constants;
 import utils.Printer;
 
-public class GiantSpider extends DamageBonusCreature implements iCastable {
+public class GiantSpider extends DamageBonusCreature implements ISpellCaster {
 
     public GiantSpider() {
         super (Constants.GIANT_SPIDER, Constants.GIANT_SPIDER_HEALTH, Constants.GIANT_SPIDER_DAMAGE,
