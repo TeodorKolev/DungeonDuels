@@ -1,5 +1,6 @@
 package cycle;
 
+import interfaces.IBonusDamager;
 import interfaces.ISpellCaster;
 import models.base.Creature;
 import models.base.Monster;
@@ -102,7 +103,14 @@ public class Duel {
     }
 
     private void playerTurn(Player player, Monster monster) {
-        player.attack();
+        if (player instanceof IBonusDamager) {
+            Random r = new Random();
+            int randomInt = r.nextInt(100) + 1;
+            ((IBonusDamager) player).empowerAttack(randomInt);
+            ((IBonusDamager) player).resetDamage();
+        } else {
+            player.attack();
+        }
         monster.defense(player.getDamageDealt(), player.getDamageDealtType());
         if (isPlayerCastable(player)) {
             this.castSpecial(player, monster, Boolean.TRUE);

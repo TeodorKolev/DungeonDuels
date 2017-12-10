@@ -32,8 +32,8 @@ public class Constants {
     public static final int GIANT_SPIDER_DEFENSE = 2;
     public static final int GIANT_SPIDER_HEALTH = 100;
 
-    public static final String LIGHTING_BOLD = "Lighting Bold";
-    public static final int LIGHTING_BOLD_DAMAGE = 3;
+    public static final String LIGHTNING_BOLD = "Lightning Bold";
+    public static final int LIGHTNING_BOLD_DAMAGE = 3;
     public static final String CLEAVE = "Cleave";
     public static final String SPIDER_VENOM = "Spider Venom";
     public static final int SPIDER_VENOM_DAMAGE = 4;

@@ -1,6 +1,5 @@
 import cycle.Duel;
 import models.base.Monster;
-import models.base.Player;
 import models.heroes.Mage;
 import models.heroes.Warrior;
 import models.monsters.GiantSpider;
@@ -13,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Mage mage = new Mage("MagaMan");
+        Warrior mage = new Warrior("MagaMan");
         ArrayList<Monster> monsters = new ArrayList<>();
         Monster giantSpider = new Monster(new GiantSpider());
         Monster skeleton = new Monster(new Skeleton());

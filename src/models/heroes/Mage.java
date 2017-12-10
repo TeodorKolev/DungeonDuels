@@ -4,18 +4,20 @@ import models.base.Player;
 import models.base.SpecialPower;
 import utils.Constants;
 import interfaces.ISpellCaster;
-import models.spells.LightingBold;
+import models.spells.LightningBold;
 import utils.Printer;
 
 public class Mage extends Player implements ISpellCaster {
 
     private String name;
-    private SpecialPower lightingBold;
+    private SpecialPower specialPower;
+    private int specialPowerCastChance;
 
     public Mage(String name) {
         super(name, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
         this.name = name;
-        this.lightingBold = new LightingBold();
+        this.specialPower = new LightningBold();
+        this.specialPowerCastChance = Constants.MAGE_CAST_SPECIAL_CHANCE;
     }
 
     public String getName() {
@@ -40,20 +42,19 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public SpecialPower getSpecialPower() {
-        return lightingBold;
+        return specialPower;
     }
 
     @Override
     public int getSpecialPowerCastChance() {
-        return Constants.MAGE_CAST_SPECIAL_CHANCE;
+        return specialPowerCastChance;
     }
 
     @Override
     public void castSpecial() {
         this.setDamageDealt(this.getSpecialPower().getDamage());
         this.setDamageDealtType(this.getSpecialPower().getType());
-        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getDamageDealt());
-
+        Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
     }
 
 
