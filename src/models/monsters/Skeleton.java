@@ -6,15 +6,8 @@ import utils.Constants;
 
 public class Skeleton extends Monster implements IBonusDamager {
 
-    private int bonusDamageChance;
-
     public Skeleton() {
         super (Constants.SKELETON, Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENSE);
-        this.bonusDamageChance = Constants.SKELETON_DAMAGE_BONUS_CHANCE;
-    }
-
-    public int getBonusDamageChance() {
-        return bonusDamageChance;
     }
 
     @Override
@@ -29,11 +22,11 @@ public class Skeleton extends Monster implements IBonusDamager {
 
     @Override
     public void empowerAttack(int chance) {
-        if (chance <= (this.getBonusDamageChance() * 2)) {
+        if (chance <= Constants.SKELETON_DAMAGE_BONUS_CHANCE) {
             this.setDamage(this.getDamage() + Constants.SKELETON_DAMAGE_BONUS_POINT);
-            if (chance <= this.getBonusDamageChance()) {
-                this.setDamage(this.getDamage() + Constants.SKELETON_DAMAGE_BONUS_POINT);
-            }
+        }
+        if (chance <= (Constants.SKELETON_DAMAGE_BONUS_CHANCE * 2)) {
+            this.setDamage(this.getDamage() + Constants.SKELETON_DAMAGE_BONUS_POINT);
         }
         else {
             this.resetDamage();

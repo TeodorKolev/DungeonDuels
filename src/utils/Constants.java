@@ -27,10 +27,9 @@ public class Constants {
 
     public static final String GIANT_SPIDER = "Giant Spider";
     public static final int GIANT_SPIDER_DAMAGE = 7;
-    public static final int GIANT_SPIDER_DAMAGE_BONUS_POINT = 1;
-    public static final int GIANT_SPIDER_DAMAGE_BONUS_CHANCE = 33;
     public static final int GIANT_SPIDER_DEFENSE = 2;
     public static final int GIANT_SPIDER_HEALTH = 100;
+    public static final int GIANT_SPIDER_CAST_SPECIAL_CHANCE = 20;
 
     public static final String LIGHTNING_BOLD = "Lightning Bold";
     public static final int LIGHTNING_BOLD_DAMAGE = 3;

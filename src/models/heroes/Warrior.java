@@ -10,19 +10,11 @@ import utils.Printer;
 
 public class Warrior extends Player implements ISpellCaster, IBonusDamager {
 
-    private SpecialPower cleave;
-    private int specialPowerCastChance;
-    private int bonusDamageChance;
+    private SpecialPower specialPower;
 
     public Warrior(String name) {
         super (name, Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
-        this.cleave = new Cleave(this.getDamage() / 2);
-        this.specialPowerCastChance = Constants.WARRIOR_CAST_SPECIAL_CHANCE;
-        this.bonusDamageChance = Constants.WARRIOR_DAMAGE_BONUS_CHANCE;
-    }
-
-    public int getBonusDamageChance() {
-        return bonusDamageChance;
+        this.specialPower = new Cleave(this.getDamage() / 2);
     }
 
     @Override
@@ -43,12 +35,12 @@ public class Warrior extends Player implements ISpellCaster, IBonusDamager {
 
     @Override
     public SpecialPower getSpecialPower() {
-        return cleave;
+        return specialPower;
     }
 
     @Override
     public int getSpecialPowerCastChance() {
-        return specialPowerCastChance;
+        return Constants.WARRIOR_CAST_SPECIAL_CHANCE;
     }
 
     @Override
@@ -60,11 +52,11 @@ public class Warrior extends Player implements ISpellCaster, IBonusDamager {
 
     @Override
     public void empowerAttack(int chance) {
-        if (chance <= (this.getBonusDamageChance() * 2)) {
+        if (chance <= Constants.WARRIOR_DAMAGE_BONUS_CHANCE) {
             this.setDamage(this.getDamage() + Constants.WARRIOR_DAMAGE_BONUS_POINT);
-            if (chance <= this.getBonusDamageChance()) {
-                this.setDamage(this.getDamage() + Constants.WARRIOR_DAMAGE_BONUS_POINT);
-            }
+        }
+        if (chance <= (Constants.WARRIOR_DAMAGE_BONUS_CHANCE * 2)) {
+            this.setDamage(this.getDamage() + Constants.WARRIOR_DAMAGE_BONUS_POINT);
         }
         else {
             this.resetDamage();

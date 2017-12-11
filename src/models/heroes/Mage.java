@@ -9,19 +9,11 @@ import utils.Printer;
 
 public class Mage extends Player implements ISpellCaster {
 
-    private String name;
     private SpecialPower specialPower;
-    private int specialPowerCastChance;
 
     public Mage(String name) {
         super(name, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
-        this.name = name;
         this.specialPower = new LightningBold();
-        this.specialPowerCastChance = Constants.MAGE_CAST_SPECIAL_CHANCE;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override
@@ -46,7 +38,7 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public int getSpecialPowerCastChance() {
-        return specialPowerCastChance;
+        return Constants.MAGE_CAST_SPECIAL_CHANCE;
     }
 
     @Override
