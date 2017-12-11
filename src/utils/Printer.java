@@ -26,6 +26,10 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void minotaurCastSpecial(String name, String spellName) {
+        System.out.println(name + " get " + spellName + "!!!" );
+    }
+
     public static void stepDeeper() {
         System.out.println("Press Enter to step deeper in the dungeon...");
     }

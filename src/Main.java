@@ -3,6 +3,7 @@ import models.base.Monster;
 import models.heroes.Mage;
 import models.heroes.Warrior;
 import models.monsters.GiantSpider;
+import models.monsters.Minotaur;
 import models.monsters.Skeleton;
 import utils.Printer;
 
@@ -16,6 +17,8 @@ public class Main {
         ArrayList<Monster> monsters = new ArrayList<>();
         Skeleton skeleton = new Skeleton();
         GiantSpider giantSpider = new GiantSpider();
+        Minotaur minotaur = new Minotaur();
+        monsters.add(minotaur);
         monsters.add(skeleton);
         monsters.add(giantSpider);
         Duel duel = new Duel(mage, monsters);

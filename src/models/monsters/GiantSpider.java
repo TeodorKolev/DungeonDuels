@@ -30,7 +30,7 @@ public class GiantSpider extends Monster implements ISpellCaster {
 
     @Override
     public SpecialPower getSpecialPower() {
-        return specialPower;
+        return this.specialPower;
     }
 
     @Override

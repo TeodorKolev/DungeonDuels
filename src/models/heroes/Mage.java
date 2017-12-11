@@ -33,7 +33,7 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public SpecialPower getSpecialPower() {
-        return specialPower;
+        return this.specialPower;
     }
 
     @Override

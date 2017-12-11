@@ -19,6 +19,11 @@ public class SpecialPower extends Entity {
         this.target = target;
     }
 
+    public SpecialPower(String name, String target) {
+        super(name);
+        this.target = target;
+    }
+
     public int getDamage() {
         return damage;
     }
