@@ -48,7 +48,7 @@ public class Creature extends Entity {
         return damageTaken;
     }
 
-    private void setDamageTaken(int damageTaken) {
+    public void setDamageTaken(int damageTaken) {
         this.damageTaken = damageTaken;
     }
 

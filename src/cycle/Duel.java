@@ -5,6 +5,7 @@ import interfaces.ISpellCaster;
 import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
+import models.heroes.Warlock;
 import utils.Constants;
 import utils.Printer;
 
@@ -134,10 +135,14 @@ public class Duel {
         Random r = new Random();
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
-            if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
+            if (player instanceof Warlock) {
                 ((ISpellCaster) player).castSpecial();
-                if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
+            } else {
+                if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
+                    ((ISpellCaster) player).castSpecial();
+                    if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
+                        monster.defense(player.getDamageDealt(), player.getDamageDealtType());
+                    }
                 }
             }
         } else {

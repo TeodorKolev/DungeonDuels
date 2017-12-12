@@ -22,6 +22,14 @@ public class Printer {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }
 
+    public static void soulTradePenalty(String name, String spellName, int spellDamageDealt) {
+        System.out.println(name + " cast " + spellName + " and suffers " + spellDamageDealt + " from it");
+    }
+
+    public static void warlockCastSpecial(String name, String spellName, int spellDamageDealt) {
+        System.out.println(name + " deal " + spellDamageDealt + " from " + spellName);
+    }
+
     public static void giantSpiderCastSpecial(String name, String spellName, int spellDamageDealt) {
         System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
     }

@@ -1,7 +1,6 @@
 package models.monsters;
 
 import interfaces.ISpellCaster;
-import models.base.DamageBonusCreature;
 import models.base.Monster;
 import models.base.SpecialPower;
 import models.spells.SpiderVenom;

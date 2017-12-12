@@ -48,5 +48,4 @@ public class Mage extends Player implements ISpellCaster {
         Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
     }
 
-
 }
