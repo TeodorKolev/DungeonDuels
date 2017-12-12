@@ -12,10 +12,17 @@ import java.util.Random;
 public class Warlock extends Player implements ISpellCaster {
 
     private SpecialPower specialPower;
+    private String name;
 
     public Warlock(String name) {
-        super(name, Constants.WARLOCK_HEALTH, Constants.WARLOCK_DAMAGE, Constants.WARLOCK_DEFENSE);
+        super(Constants.WARLOCK, Constants.WARLOCK_HEALTH, Constants.WARLOCK_DAMAGE, Constants.WARLOCK_DEFENSE);
         this.specialPower = new SoulTrade();
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override

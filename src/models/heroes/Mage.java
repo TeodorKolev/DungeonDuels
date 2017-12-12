@@ -10,10 +10,17 @@ import utils.Printer;
 public class Mage extends Player implements ISpellCaster {
 
     private SpecialPower specialPower;
+    private String name;
 
     public Mage(String name) {
-        super(name, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
+        super(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE);
         this.specialPower = new LightningBold();
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override

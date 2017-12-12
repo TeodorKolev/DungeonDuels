@@ -11,10 +11,17 @@ import utils.Printer;
 public class Warrior extends Player implements ISpellCaster, IBonusDamager {
 
     private SpecialPower specialPower;
+    private String name;
 
     public Warrior(String name) {
-        super (name, Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
+        super (Constants.WARRIOR, Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE);
         this.specialPower = new Cleave(this.getDamage() / 2);
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
