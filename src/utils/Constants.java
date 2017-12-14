@@ -59,7 +59,4 @@ public class Constants {
 
     public static final String DAMAGE_TYPE_PHYSICAL = "physical";
     public static final String DAMAGE_TYPE_MAGIC = "magic";
-    public static final String TARGET_SELF = "self";
-    public static final String TARGET_ENEMY = "enemy";
-    public static final String MONSTER = "Monster";
 }

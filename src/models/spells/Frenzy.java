@@ -6,7 +6,7 @@ import utils.Constants;
 public class Frenzy extends SpecialPower {
 
     public Frenzy() {
-        super(Constants.FRENZY, Constants.TARGET_ENEMY);
+        super(Constants.FRENZY);
     }
 
 }

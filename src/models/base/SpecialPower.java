@@ -4,24 +4,20 @@ public class SpecialPower extends Entity {
 
     private String type;
     private int damage;
-    private String target;
 
-    public SpecialPower(String name, String type, int damage, String target) {
+    public SpecialPower(String name, String type, int damage) {
         super(name);
         this.type = type;
         this.damage = damage;
-        this.target = target;
     }
 
-    public SpecialPower(String name, String type, String target) {
+    public SpecialPower(String name, String type) {
         super(name);
         this.type = type;
-        this.target = target;
     }
 
-    public SpecialPower(String name, String target) {
+    public SpecialPower(String name) {
         super(name);
-        this.target = target;
     }
 
     public int getDamage() {
@@ -38,14 +34,6 @@ public class SpecialPower extends Entity {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getTarget() {
-        return target;
-    }
-
-    public void setTarget(String target) {
-        this.target = target;
     }
 
 }

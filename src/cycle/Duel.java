@@ -140,17 +140,13 @@ public class Duel {
             } else {
                 if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
                     ((ISpellCaster) player).castSpecial();
-                    if (((ISpellCaster) player).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                        monster.defense(player.getDamageDealt(), player.getDamageDealtType());
-                    }
+                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             }
         } else {
             if (randomInt <= (((ISpellCaster) monster).getSpecialPowerCastChance())) {
                 ((ISpellCaster) monster).castSpecial();
-                if (((ISpellCaster) monster).getSpecialPower().getTarget().equals(Constants.TARGET_ENEMY)) {
-                    player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
-                }
+                player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
             }
         }
     }

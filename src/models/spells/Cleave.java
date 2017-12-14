@@ -8,7 +8,7 @@ public class Cleave extends SpecialPower {
     private int damage;
 
     public Cleave(int damage) {
-        super(Constants.CLEAVE, Constants.DAMAGE_TYPE_MAGIC, Constants.TARGET_ENEMY);
+        super(Constants.CLEAVE, Constants.DAMAGE_TYPE_MAGIC);
         this.damage = damage;
     }
 

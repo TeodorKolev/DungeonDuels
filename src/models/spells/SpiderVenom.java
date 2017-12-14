@@ -8,7 +8,7 @@ public class SpiderVenom extends SpecialPower {
     private int damage;
 
     public SpiderVenom(int damage) {
-        super(Constants.SPIDER_VENOM, Constants.DAMAGE_TYPE_MAGIC, Constants.TARGET_ENEMY);
+        super(Constants.SPIDER_VENOM, Constants.DAMAGE_TYPE_MAGIC);
         this.damage = damage;
     }
 
