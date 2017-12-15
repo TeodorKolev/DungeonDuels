@@ -6,8 +6,16 @@ public class Printer {
         System.out.println("Type number for choosing class: 1 - Warrior, 2 - Mage, 3 - Warlock");
     }
 
+    public static void invalidInput() {
+        System.out.println("Invalid input!");
+    }
+
     public static void chooseName() {
         System.out.println("Type your name and press Enter");
+    }
+
+    public static void faceEnemy(String playerName, String monsterName) {
+        System.out.println(playerName + " have faced " + monsterName);
     }
 
     public static void dealDamage(String name, int damage) {

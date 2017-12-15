@@ -54,26 +54,36 @@ public class Duel {
     public void play() {
         Printer.startLogo();
         this.setRound(0);
-        this.setupPlayer();
+        this.setUpPlayer();
+        this.setUpMonster(this.getMonsters(), this.getRound());
         this.processDuel(Boolean.FALSE);
     }
 
-    private void setupPlayer() {
-        this.player = this.setClass(this.selectClass(), this.setName());
-        this.setMonster(this.getMonsters(), this.getRound());
+    private void setUpPlayer() {
+        this.player = this.setPlayerClass(this.selectPlayerClass(), this.setPlayerName());
     }
 
-    private int selectClass() {
-        Printer.chooseClass();
-        return this.scanner.nextInt();
+    private void setUpMonster(ArrayList<Monster> monsters, int position) {
+        this.setMonster(monsters, position);
+        Printer.faceEnemy(player.getName(), this.getMonster().getName());
     }
 
-    private String setName() {
+    private String setPlayerName() {
         Printer.chooseName();
         return this.scanner.next();
     }
 
-    private Player setClass(int playerClass, String playerName) {
+    private int selectPlayerClass() {
+        Printer.chooseClass();
+        while (!this.scanner.hasNextInt(1) && !this.scanner.hasNextInt(2) &&
+                !this.scanner.hasNextInt(3)) {
+            Printer.invalidInput();
+            this.scanner.next();
+        }
+        return this.scanner.nextInt();
+    }
+
+    private Player setPlayerClass(int playerClass, String playerName) {
         switch (playerClass) {
             case 1:
                 return new Warrior(playerName);
@@ -82,13 +92,8 @@ public class Duel {
             case 3:
                 return new Warlock(playerName);
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Invalid playerClass: " + playerClass);
         }
-    }
-
-    private void faceNextEnemy() {
-        this.setMonster(this.getMonsters(), this.getRound());
-        this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
     }
 
     private void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
@@ -115,7 +120,7 @@ public class Duel {
 
     private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         Printer.playerDefeatMonster(player.getName(), monster.getName());
-        this.setRound(round + 1);
+        this.setRound(round += 1);
         if (round + 1 > monsters.size()) {
             Printer.victory(player.getName());
         } else {
@@ -124,7 +129,7 @@ public class Duel {
     }
 
     private void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
-        setMonster(monsters, round);
+        this.setUpMonster(monsters, round);
         player.replenishLife();
         this.processDuel(Boolean.FALSE);
     }
@@ -191,10 +196,11 @@ public class Duel {
         } else {
             Printer.stepDeeper();
         }
-        scanner.hasNextLine();
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
-            this.faceNextEnemy();
+        // TODO
+        this.scanner.nextLine();
+        if (this.scanner.hasNextLine()) {
+            this.scanner.nextLine();
+            this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
         }
     }
 
