@@ -6,7 +6,6 @@ import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
 import models.heroes.Warlock;
-import utils.Constants;
 import utils.Printer;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class Duel {
     private ArrayList<Monster> monsters;
     private Scanner scanner;
     private Monster monster;
-    private int round = 0;
+    private int round = 1;
 
     public Duel(Player player, ArrayList<Monster> monsters) {
         this.player = player;
@@ -36,7 +35,7 @@ public class Duel {
     }
 
     private void setMonster(ArrayList<Monster> monsters, int position) {
-         this.monster = monsters.get(position);
+        this.monster = monsters.get(position);
     }
 
     private Monster getMonster() {
@@ -52,7 +51,6 @@ public class Duel {
     }
 
     private void start() {
-        // TODO refactor just for start
         this.setMonster(this.getMonsters(), this.getRound());
         this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
     }
@@ -82,10 +80,10 @@ public class Duel {
     private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         Printer.playerDefeatMonster(player.getName(), monster.getName());
         this.setRound(round + 1);
-        if (this.getRound() + 1 > monsters.size()) {
+        if (round > monsters.size()) {
             Printer.victory(player.getName());
         } else {
-            this.faceNextEnemy(monsters, this.getRound(), player);
+            this.faceNextEnemy(monsters, round, player);
         }
     }
 
@@ -152,16 +150,23 @@ public class Duel {
     }
 
     public void processDuel(boolean phase) {
-        if (phase == Boolean.TRUE) {
-            Printer.processDuelPhase();
+        if (this.getRound() == 1) {
+            Printer.welcome();
         } else {
-            Printer.stepDeeper();
+            if (phase == Boolean.TRUE) {
+                Printer.processDuelPhase();
+            } else {
+                Printer.stepDeeper();
+            }
         }
         scanner.hasNextLine();
         if (scanner.hasNextLine()) {
             scanner.nextLine();
-            // TODO distinguish start from levels
-            this.start();
+            if (this.getRound() == 1) {
+                this.start();
+            } else {
+                this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
+            }
         }
     }
 

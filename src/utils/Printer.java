@@ -2,6 +2,10 @@ package utils;
 
 public class Printer {
 
+    public static void welcome() {
+        System.out.println("Greetings traveler. Press Enter to enter the dungeon...");
+    }
+
     public static void dealDamage(String name, int damage) {
         System.out.println(name + " deal " + damage + " damage.");
     }
