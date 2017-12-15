@@ -5,7 +5,9 @@ import interfaces.ISpellCaster;
 import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
+import models.heroes.Mage;
 import models.heroes.Warlock;
+import models.heroes.Warrior;
 import utils.Printer;
 
 import java.util.ArrayList;
@@ -18,10 +20,9 @@ public class Duel {
     private ArrayList<Monster> monsters;
     private Scanner scanner;
     private Monster monster;
-    private int round = 1;
+    private int round;
 
-    public Duel(Player player, ArrayList<Monster> monsters) {
-        this.player = player;
+    public Duel(ArrayList<Monster> monsters) {
         this.monsters = monsters;
         this.scanner = new Scanner(System.in);
     }
@@ -50,12 +51,47 @@ public class Duel {
         this.round = round;
     }
 
-    private void start() {
-        this.setMonster(this.getMonsters(), this.getRound());
-        this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
+    public void play() {
+        Printer.startLogo();
+        this.setRound(0);
+        this.setupPlayer();
+        this.processDuel(Boolean.FALSE);
     }
 
-    private void setUpDuel(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
+    private void setupPlayer() {
+        this.player = this.setClass(this.selectClass(), this.setName());
+        this.setMonster(this.getMonsters(), this.getRound());
+    }
+
+    private int selectClass() {
+        Printer.chooseClass();
+        return this.scanner.nextInt();
+    }
+
+    private String setName() {
+        Printer.chooseName();
+        return this.scanner.next();
+    }
+
+    private Player setClass(int playerClass, String playerName) {
+        switch (playerClass) {
+            case 1:
+                return new Warrior(playerName);
+            case 2:
+                return new Mage(playerName);
+            case 3:
+                return new Warlock(playerName);
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
+    private void faceNextEnemy() {
+        this.setMonster(this.getMonsters(), this.getRound());
+        this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
+    }
+
+    private void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         this.playerTurn(player, monster);
         if (isAlive(monster)) {
             this.monsterTurn(player, monster);
@@ -80,7 +116,7 @@ public class Duel {
     private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         Printer.playerDefeatMonster(player.getName(), monster.getName());
         this.setRound(round + 1);
-        if (round > monsters.size()) {
+        if (round + 1 > monsters.size()) {
             Printer.victory(player.getName());
         } else {
             this.faceNextEnemy(monsters, round, player);
@@ -149,24 +185,16 @@ public class Duel {
         }
     }
 
-    public void processDuel(boolean phase) {
-        if (this.getRound() == 1) {
-            Printer.welcome();
+    private void processDuel(boolean duelPhase) {
+        if (duelPhase == Boolean.TRUE) {
+            Printer.processDuelPhase();
         } else {
-            if (phase == Boolean.TRUE) {
-                Printer.processDuelPhase();
-            } else {
-                Printer.stepDeeper();
-            }
+            Printer.stepDeeper();
         }
         scanner.hasNextLine();
         if (scanner.hasNextLine()) {
             scanner.nextLine();
-            if (this.getRound() == 1) {
-                this.start();
-            } else {
-                this.setUpDuel(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
-            }
+            this.faceNextEnemy();
         }
     }
 

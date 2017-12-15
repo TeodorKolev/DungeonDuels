@@ -2,8 +2,12 @@ package utils;
 
 public class Printer {
 
-    public static void welcome() {
-        System.out.println("Greetings traveler. Press Enter to enter the dungeon...");
+    public static void chooseClass() {
+        System.out.println("Type number for choosing class: 1 - Warrior, 2 - Mage, 3 - Warlock");
+    }
+
+    public static void chooseName() {
+        System.out.println("Type your name and press Enter");
     }
 
     public static void dealDamage(String name, int damage) {
