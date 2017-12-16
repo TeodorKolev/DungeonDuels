@@ -196,10 +196,8 @@ public class Duel {
         } else {
             Printer.stepDeeper();
         }
-        // TODO
         this.scanner.nextLine();
         if (this.scanner.hasNextLine()) {
-            this.scanner.nextLine();
             this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
         }
     }
