@@ -92,7 +92,7 @@ public class Duel {
             case 3:
                 return new Warlock(playerName);
             default:
-                throw new IllegalArgumentException("Invalid playerClass: " + playerClass);
+                throw new IllegalArgumentException(Printer.invalidPlayerClass + playerClass);
         }
     }
 

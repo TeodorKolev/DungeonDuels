@@ -2,6 +2,8 @@ package utils;
 
 public class Printer {
 
+    public static String invalidPlayerClass = "Invalid Player Class: ";
+
     public static void chooseClass() {
         System.out.println("Type number for choosing class: 1 - Warrior, 2 - Mage, 3 - Warlock");
     }
