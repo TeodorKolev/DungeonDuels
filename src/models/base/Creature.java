@@ -22,7 +22,7 @@ public class Creature extends Entity {
         return damageDealtType;
     }
 
-    protected void setDamageDealtType(String damageDealtType) {
+    public void setDamageDealtType(String damageDealtType) {
         this.damageDealtType = damageDealtType;
     }
 
@@ -34,7 +34,7 @@ public class Creature extends Entity {
         this.damageDealt = damageDealt;
     }
 
-    private int getDefense() {
+    protected int getDefense() {
         return defense;
     }
 
