@@ -17,8 +17,4 @@ public class SpiderVenom extends SpecialPower {
         return damage;
     }
 
-    @Override
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
 }

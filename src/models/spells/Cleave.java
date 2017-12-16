@@ -17,8 +17,4 @@ public class Cleave extends SpecialPower {
         return damage;
     }
 
-    @Override
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
 }

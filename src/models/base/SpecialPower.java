@@ -24,10 +24,6 @@ public class SpecialPower extends Entity {
         return damage;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
     public String getType() {
         return type;
     }
