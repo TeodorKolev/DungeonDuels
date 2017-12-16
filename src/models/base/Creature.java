@@ -9,9 +9,7 @@ public class Creature extends Entity {
     private int damage;
     private int defense;
     private int damageDealt;
-    private int damageTaken;
     private String damageDealtType;
-    private String damageTakenType;
 
     public Creature(String name, int health, int damage, int defense) {
         super(name);
@@ -20,19 +18,11 @@ public class Creature extends Entity {
         this.defense = defense;
     }
 
-    public Creature(String name) {
-        super(name);
-    }
-
-    public String getDamageTakenType() {
-        return damageTakenType;
-    }
-
     public String getDamageDealtType() {
         return damageDealtType;
     }
 
-    public void setDamageDealtType(String damageDealtType) {
+    protected void setDamageDealtType(String damageDealtType) {
         this.damageDealtType = damageDealtType;
     }
 
@@ -40,61 +30,43 @@ public class Creature extends Entity {
         return damageDealt;
     }
 
-    public void setDamageDealt(int damageDealt) {
+    protected void setDamageDealt(int damageDealt) {
         this.damageDealt = damageDealt;
-    }
-
-    public int getDamageTaken() {
-        return damageTaken;
-    }
-
-    public void setDamageTaken(int damageTaken) {
-        this.damageTaken = damageTaken;
     }
 
     private int getDefense() {
         return defense;
     }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    protected void setHealth(int health) {
         this.health = health;
-    }
-
-    protected int takeDamage() {
-        return damage;
     }
 
     public int getDamage() {
         return damage;
     }
 
-    public void setDamage(int damage) {
+    protected void setDamage(int damage) {
         this.damage = damage;
     }
 
-    public void takeDamage(String name, int damage, String damageType) {
+    protected void takeDamage(String name, int damage, String damageType) {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
             damageReduced = (damage - this.getDefense());
-            this.setDamageTaken(damageReduced);
             this.setHealth(this.getHealth() - damageReduced);
             Printer.takeDamage(name, damageReduced, this.getHealth());
         } else  if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
-            this.setDamageTaken(damage);
             this.setHealth(this.getHealth() - damage);
             Printer.takeDamage(name, damage, this.getHealth());
         }
     }
 
-    public void dealDamage(String name, int damage, String damageType) {
+    protected void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);
         this.setDamageDealtType(damageType);
         Printer.dealDamage(name, damage);

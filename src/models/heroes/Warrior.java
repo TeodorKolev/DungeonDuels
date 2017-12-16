@@ -52,9 +52,8 @@ public class Warrior extends Player implements ISpellCaster, IBonusDamager {
 
     @Override
     public void castSpecial() {
-        this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(this.getSpecialPower().getType());
-        Printer.warriorCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
+        Printer.castSpecial(this.getName(), this.getSpecialPower().getName());
+        this.dealDamage(this.getName(), this.getSpecialPower().getDamage(), this.getSpecialPower().getType());
     }
 
     @Override

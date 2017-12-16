@@ -7,8 +7,6 @@ import models.spells.SoulTrade;
 import utils.Constants;
 import utils.Printer;
 
-import java.util.Random;
-
 public class Warlock extends Player implements ISpellCaster {
 
     private SpecialPower specialPower;
@@ -52,14 +50,15 @@ public class Warlock extends Player implements ISpellCaster {
 
     @Override
     public void castSpecial() {
-        this.setDamageTaken(Constants.WARLOCK_CAST_SPECIAL_PENALTY);
+        Printer.castSpecial(this.getName(), this.getSpecialPower().getName());
+        this.dealDamage(this.getName(), this.getSpecialPower().getDamage(), this.getSpecialPower().getType());
+    }
+
+    public void specialPenalty(int chanceToCast) {
         Printer.soulTradePenalty(this.getName(), this.getSpecialPower().getName(), Constants.WARLOCK_CAST_SPECIAL_PENALTY);
-        Random r = new Random();
-        int randomInt = r.nextInt(100) + 1;
-        if (randomInt <= this.getSpecialPowerCastChance()) {
-            this.setDamageDealt(this.getSpecialPower().getDamage());
-            this.setDamageDealtType(this.getSpecialPower().getType());
-            Printer.warlockCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
+        this.takeDamage(this.getName(), Constants.WARLOCK_CAST_SPECIAL_PENALTY, this.getSpecialPower().getType());
+        if (chanceToCast <= Constants.WARLOCK_CAST_SPECIAL_CHANCE) {
+            this.castSpecial();
         }
     }
 

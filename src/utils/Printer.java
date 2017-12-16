@@ -32,20 +32,12 @@ public class Printer {
         System.out.println(ASCIIArt.START_LOGO);
     }
 
-    public static void warriorCastSpecial(String name, String spellName, int spellDamageDealt) {
-        System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
-    }
-
-    public static void mageCastSpecial(String name, String spellName, int spellDamageDealt) {
-        System.out.println(name + " cast " + spellName + " deal " + spellDamageDealt + " damage");
+    public static void castSpecial(String name, String spellName) {
+        System.out.println(name + " cast " + spellName);
     }
 
     public static void soulTradePenalty(String name, String spellName, int spellDamageDealt) {
         System.out.println(name + " cast " + spellName + " and suffers " + spellDamageDealt + " from it");
-    }
-
-    public static void warlockCastSpecial(String name, String spellName, int spellDamageDealt) {
-        System.out.println(name + " deal " + spellDamageDealt + " from " + spellName);
     }
 
     public static void giantSpiderCastSpecial(String name, String spellName, int spellDamageDealt) {
@@ -56,8 +48,8 @@ public class Printer {
         System.out.println(name + " get " + spellName + "!!!" );
     }
 
-    public static void stepDeeper() {
-        System.out.println("Press Enter to step deeper in the dungeon...");
+    public static void beginDuel() {
+        System.out.println("Press Enter to step begin duel...");
     }
 
     public static void processDuelPhase() {

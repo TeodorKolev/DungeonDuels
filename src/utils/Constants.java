@@ -20,7 +20,7 @@ public class Constants {
     public static final int WARLOCK_DAMAGE = 9;
     public static final int WARLOCK_DEFENSE = 3;
     public static final int WARLOCK_HEALTH = 115;
-    public static final int WARLOCK_CAST_SPECIAL_CHANCE = 30;
+    public static final int WARLOCK_CAST_SPECIAL_CHANCE = 20;
     public static final int WARLOCK_CAST_SPECIAL_PENALTY = 5;
 
     public static final String SKELETON = "Skeleton";
@@ -45,7 +45,7 @@ public class Constants {
     public static final int MINOTAUR_DAMAGE_BONUS_CHANCE = 20;
 
     public static final String LIGHTNING_BOLD = "Lightning Bold";
-    public static final int LIGHTNING_BOLD_DAMAGE = 4;
+    public static final int LIGHTNING_BOLD_DAMAGE = 8;
 
     public static final String CLEAVE = "Cleave";
 
@@ -55,7 +55,7 @@ public class Constants {
     public static final String FRENZY = "Frenzy";
 
     public static final String SOUL_TRADE = "Soul Trade";
-    public static final int SOUL_TRADE_DAMAGE = 20;
+    public static final int SOUL_TRADE_DAMAGE = 30;
 
     public static final String DAMAGE_TYPE_PHYSICAL = "physical";
     public static final String DAMAGE_TYPE_MAGIC = "magic";

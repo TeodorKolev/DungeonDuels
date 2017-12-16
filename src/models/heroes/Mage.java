@@ -50,9 +50,8 @@ public class Mage extends Player implements ISpellCaster {
 
     @Override
     public void castSpecial() {
-        this.setDamageDealt(this.getSpecialPower().getDamage());
-        this.setDamageDealtType(this.getSpecialPower().getType());
-        Printer.mageCastSpecial(this.getName(), this.getSpecialPower().getName(), this.getSpecialPower().getDamage());
+        Printer.castSpecial(this.getName(), this.getSpecialPower().getName());
+        this.dealDamage(this.getName(), this.getSpecialPower().getDamage(), this.getSpecialPower().getType());
     }
 
 }

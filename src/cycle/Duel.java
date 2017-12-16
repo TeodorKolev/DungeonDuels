@@ -75,8 +75,8 @@ public class Duel {
 
     private int selectPlayerClass() {
         Printer.chooseClass();
-        while (!this.scanner.hasNextInt(1) && !this.scanner.hasNextInt(2) &&
-                !this.scanner.hasNextInt(3)) {
+        while (!this.scanner.hasNextInt(2) && !this.scanner.hasNextInt(3) &&
+                !this.scanner.hasNextInt(4)) {
             Printer.invalidInput();
             this.scanner.next();
         }
@@ -175,7 +175,7 @@ public class Duel {
         int randomInt = r.nextInt(100) + 1;
         if (heroCast) {
             if (player instanceof Warlock) {
-                ((ISpellCaster) player).castSpecial();
+                ((Warlock) player).specialPenalty(randomInt);
             } else {
                 if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
                     ((ISpellCaster) player).castSpecial();
@@ -194,7 +194,7 @@ public class Duel {
         if (duelPhase == Boolean.TRUE) {
             Printer.processDuelPhase();
         } else {
-            Printer.stepDeeper();
+            Printer.beginDuel();
         }
         this.scanner.nextLine();
         if (this.scanner.hasNextLine()) {
