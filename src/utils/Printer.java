@@ -49,7 +49,7 @@ public class Printer {
     }
 
     public static void beginDuel() {
-        System.out.println("Press Enter to step begin duel...");
+        System.out.println("Press Enter to begin duel...");
     }
 
     public static void processDuelPhase() {
@@ -60,10 +60,9 @@ public class Printer {
         System.out.println("==================== " + playerName + " has defeated " + monsterName + " ====================");
     }
 
-    public static void monsterDefeatPlayer(String playerName) {
+    public static void monsterDefeatPlayer() {
         System.out.println("============================================================");
         System.out.println("====================  Game Over ====================");
-        System.out.println("==================== " + playerName + " is dead. ====================");
         System.out.println("============================================================");
     }
 

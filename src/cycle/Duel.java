@@ -70,18 +70,23 @@ public class Duel {
 
     private String setPlayerName() {
         Printer.chooseName();
-        return this.scanner.next();
+        String name = scanner.next();
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
     private int selectPlayerClass() {
-        Printer.chooseClass();
-        while (!this.scanner.hasNextInt(2) && !this.scanner.hasNextInt(3) &&
-                !this.scanner.hasNextInt(4)) {
-            Printer.invalidInput();
-            this.scanner.next();
-        }
-        return this.scanner.nextInt();
+        int number;
+        do {
+            Printer.chooseClass();
+            while (!scanner.hasNextInt()) {
+                Printer.invalidInput();
+                scanner.nextLine();
+            }
+            number = scanner.nextInt();
+        } while (number != 1 && number != 2 && number != 3);
+        return number;
     }
+
 
     private Player setPlayerClass(int playerClass, String playerName) {
         switch (playerClass) {
@@ -103,7 +108,7 @@ public class Duel {
             if (isAlive(player)) {
                 this.processDuel(Boolean.TRUE);
             } else {
-                this.monsterDefeatPlayer(player);
+                this.monsterDefeatPlayer();
             }
         } else {
             this.playerDefeatMonster(player, monster, round, monsters);
@@ -114,8 +119,8 @@ public class Duel {
         return creature.getHealth() > 0;
     }
 
-    private void monsterDefeatPlayer(Player player) {
-        Printer.monsterDefeatPlayer(player.getName());
+    private void monsterDefeatPlayer() {
+        Printer.monsterDefeatPlayer();
     }
 
     private void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
@@ -126,6 +131,7 @@ public class Duel {
         } else {
             this.faceNextEnemy(monsters, round, player);
         }
+        this.scanner.close();
     }
 
     private void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
