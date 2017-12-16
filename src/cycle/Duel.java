@@ -103,9 +103,9 @@ public class Duel {
 
     private void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         this.playerTurn(player, monster);
-        if (isAlive(monster)) {
+        if (monster.isAlive()) {
             this.monsterTurn(player, monster);
-            if (isAlive(player)) {
+            if (player.isAlive()) {
                 this.processDuel(Boolean.TRUE);
             } else {
                 this.monsterDefeatPlayer();
@@ -113,10 +113,6 @@ public class Duel {
         } else {
             this.playerDefeatMonster(player, monster, round, monsters);
         }
-    }
-
-    private boolean isAlive(Creature creature) {
-        return creature.getHealth() > 0;
     }
 
     private void monsterDefeatPlayer() {

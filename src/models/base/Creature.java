@@ -38,7 +38,7 @@ public class Creature extends Entity {
         return defense;
     }
 
-    public int getHealth() {
+    protected int getHealth() {
         return health;
     }
 
@@ -52,6 +52,10 @@ public class Creature extends Entity {
 
     protected void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public boolean isAlive() {
+        return this.getHealth() > 0;
     }
 
     protected void takeDamage(String name, int damage, String damageType) {

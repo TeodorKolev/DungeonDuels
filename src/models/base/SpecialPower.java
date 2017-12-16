@@ -32,8 +32,4 @@ public class SpecialPower extends Entity {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
 }
