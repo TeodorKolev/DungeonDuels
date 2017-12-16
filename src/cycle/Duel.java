@@ -2,7 +2,6 @@ package cycle;
 
 import interfaces.IBonusDamager;
 import interfaces.ISpellCaster;
-import models.base.Creature;
 import models.base.Monster;
 import models.base.Player;
 import models.heroes.Mage;
@@ -86,7 +85,6 @@ public class Duel {
         } while (number != 1 && number != 2 && number != 3);
         return number;
     }
-
 
     private Player setPlayerClass(int playerClass, String playerName) {
         switch (playerClass) {
