@@ -8,8 +8,8 @@ public class RollingDie {
     private int sidesCount;
 
     public RollingDie() {
-        sidesCount = 100;
-        random = new Random();
+        this.sidesCount = 100;
+        this.random = new Random();
     }
 
     public int getSidesCount() {
@@ -17,7 +17,7 @@ public class RollingDie {
     }
 
     public int roll() {
-        return random.nextInt(sidesCount) + 1;
+        return random.nextInt(this.getSidesCount()) + 1;
     }
 
 }
