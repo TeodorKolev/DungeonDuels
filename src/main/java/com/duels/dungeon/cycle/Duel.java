@@ -10,7 +10,6 @@ import com.duels.dungeon.models.heroes.Warrior;
 import com.duels.dungeon.utils.Printer;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Duel {
@@ -20,10 +19,12 @@ public class Duel {
     private Scanner scanner;
     private Monster monster;
     private int round;
+    private RollingDie rollingDie;
 
     public Duel(ArrayList<Monster> monsters) {
         this.monsters = monsters;
         this.scanner = new Scanner(System.in);
+        this.rollingDie = new RollingDie();
     }
 
     private Player getPlayer() {
@@ -151,8 +152,7 @@ public class Duel {
     }
 
     private void attack(Player player, Monster monster, boolean heroCast) {
-        Random r = new Random();
-        int randomInt = r.nextInt(100) + 1;
+        int randomInt = this.rollingDie.roll();
         if (heroCast) {
             if (player instanceof IBonusDamager) {
                 ((IBonusDamager) player).empowerAttack(randomInt);
@@ -171,8 +171,7 @@ public class Duel {
     }
 
     private void castSpecial(Player player, Monster monster, boolean heroCast) {
-        Random r = new Random();
-        int randomInt = r.nextInt(100) + 1;
+        int randomInt = this.rollingDie.roll();
         if (heroCast) {
             if (player instanceof Warlock) {
                 ((Warlock) player).specialPenalty(randomInt);
