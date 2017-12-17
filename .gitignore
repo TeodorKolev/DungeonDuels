@@ -126,7 +126,7 @@ Thumbs.db
 # Intellij files #
 ##################
 .idea/
-*.iml
+
 *.iws
 
 # Spring files #
