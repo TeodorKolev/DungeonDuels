@@ -1,4 +1,4 @@
-package test.java.com.duels.dungeon;
+package com.duels.dungeon;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

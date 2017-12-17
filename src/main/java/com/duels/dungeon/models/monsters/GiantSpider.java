@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.models.monsters;
+package com.duels.dungeon.models.monsters;
 
 import com.duels.dungeon.interfaces.ISpellCaster;
 import com.duels.dungeon.models.base.Monster;

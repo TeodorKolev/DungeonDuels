@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon;
+package com.duels.dungeon;
 import com.duels.dungeon.cycle.Duel;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.models.monsters.GiantSpider;

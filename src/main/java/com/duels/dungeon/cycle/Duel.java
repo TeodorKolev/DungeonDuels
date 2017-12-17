@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.cycle;
+package com.duels.dungeon.cycle;
 
 import com.duels.dungeon.interfaces.IBonusDamager;
 import com.duels.dungeon.interfaces.ISpellCaster;

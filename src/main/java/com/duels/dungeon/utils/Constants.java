@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.utils;
+package com.duels.dungeon.utils;
 
 public class Constants {
 

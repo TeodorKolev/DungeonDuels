@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.interfaces;
+package com.duels.dungeon.interfaces;
 
 public interface IBonusDamager {
 

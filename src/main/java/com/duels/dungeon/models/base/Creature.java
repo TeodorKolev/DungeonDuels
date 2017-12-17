@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.models.base;
+package com.duels.dungeon.models.base;
 
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;

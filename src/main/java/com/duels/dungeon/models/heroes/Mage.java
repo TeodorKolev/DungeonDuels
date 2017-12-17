@@ -1,4 +1,4 @@
-package main.java.com.duels.dungeon.models.heroes;
+package com.duels.dungeon.models.heroes;
 
 import com.duels.dungeon.models.base.Player;
 import com.duels.dungeon.models.base.SpecialPower;
