@@ -64,7 +64,7 @@ public class Creature extends Entity {
             damageReduced = (damage - this.getDefense());
             this.setHealth(this.getHealth() - damageReduced);
             Printer.takeDamage(name, damageReduced, this.getHealth());
-        } else  if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
+        } else if (damageType.equals(Constants.DAMAGE_TYPE_MAGIC)) {
             this.setHealth(this.getHealth() - damage);
             Printer.takeDamage(name, damage, this.getHealth());
         }
