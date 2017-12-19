@@ -4,9 +4,7 @@ import com.duels.dungeon.models.base.BonusDamagеable;
 import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.heroes.Mage;
 import com.duels.dungeon.models.heroes.Warlock;
-import com.duels.dungeon.models.heroes.Warrior;
 import com.duels.dungeon.utils.Printer;
 
 import java.util.ArrayList;
@@ -20,11 +18,15 @@ public class Duel {
     private Monster monster;
     private int round;
     private RollingDie rollingDie;
+    private NameSelector nameSelector;
+    private ClassSelector classSelector;
 
     public Duel(ArrayList<Monster> monsters) {
         this.monsters = monsters;
         this.scanner = new Scanner(System.in);
         this.rollingDie = new RollingDie();
+        this.nameSelector = new NameSelector();
+        this.classSelector = new ClassSelector();
     }
 
     private Player getPlayer() {
@@ -56,44 +58,12 @@ public class Duel {
     }
 
     private void setUpPlayer() {
-        this.player = this.setPlayerClass(this.selectPlayerClass(), this.setPlayerName());
+        this.player = classSelector.setPlayerClass(classSelector.selectPlayerClass(), nameSelector.setPlayerName());
     }
 
     private void setUpMonster(ArrayList<Monster> monsters, int position) {
         this.setMonster(monsters, position);
         Printer.faceEnemy(player.getName(), this.getMonster().getName());
-    }
-
-    private String setPlayerName() {
-        Printer.chooseName();
-        String name = scanner.next();
-        return name.substring(0, 1).toUpperCase() + name.substring(1);
-    }
-
-    private int selectPlayerClass() {
-        int number;
-        do {
-            Printer.chooseClass();
-            while (!scanner.hasNextInt()) {
-                Printer.invalidInput();
-                scanner.nextLine();
-            }
-            number = scanner.nextInt();
-        } while (number != 1 && number != 2 && number != 3);
-        return number;
-    }
-
-    private Player setPlayerClass(int playerClass, String playerName) {
-        switch (playerClass) {
-            case 1:
-                return new Warrior(playerName);
-            case 2:
-                return new Mage(playerName);
-            case 3:
-                return new Warlock(playerName);
-            default:
-                throw new IllegalArgumentException(Printer.invalidPlayerClass + playerClass);
-        }
     }
 
     private void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
