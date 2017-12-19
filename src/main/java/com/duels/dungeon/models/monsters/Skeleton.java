@@ -1,10 +1,10 @@
 package com.duels.dungeon.models.monsters;
 
-import com.duels.dungeon.interfaces.IBonusDamager;
+import com.duels.dungeon.models.base.BonusDamagеable;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.utils.Constants;
 
-public class Skeleton extends Monster implements IBonusDamager {
+public class Skeleton extends Monster implements BonusDamagеable {
 
     public Skeleton() {
         super (Constants.SKELETON, Constants.SKELETON_HEALTH, Constants.SKELETON_DAMAGE, Constants.SKELETON_DEFENSE);

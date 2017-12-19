@@ -1,14 +1,14 @@
 package com.duels.dungeon.models.monsters;
 
-import com.duels.dungeon.interfaces.IBonusDamager;
-import com.duels.dungeon.interfaces.ISpellCaster;
+import com.duels.dungeon.models.base.BonusDamagеable;
+import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.models.base.SpecialPower;
 import com.duels.dungeon.models.spells.Frenzy;
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;
 
-public class Minotaur extends Monster implements IBonusDamager, ISpellCaster {
+public class Minotaur extends Monster implements BonusDamagеable, SpellCastable {
 
     private SpecialPower specialPower;
 

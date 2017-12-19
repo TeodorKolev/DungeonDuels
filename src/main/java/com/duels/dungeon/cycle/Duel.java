@@ -1,7 +1,7 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.interfaces.IBonusDamager;
-import com.duels.dungeon.interfaces.ISpellCaster;
+import com.duels.dungeon.models.base.BonusDamagеable;
+import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.models.base.Player;
 import com.duels.dungeon.models.heroes.Mage;
@@ -31,10 +31,6 @@ public class Duel {
         return player;
     }
 
-    private ArrayList<Monster> getMonsters() {
-        return monsters;
-    }
-
     private void setMonster(ArrayList<Monster> monsters, int position) {
         this.monster = monsters.get(position);
     }
@@ -55,7 +51,7 @@ public class Duel {
         Printer.startLogo();
         this.setRound(0);
         this.setUpPlayer();
-        this.setUpMonster(this.getMonsters(), this.getRound());
+        this.setUpMonster(this.monsters, this.getRound());
         this.processDuel(Boolean.FALSE);
     }
 
@@ -138,7 +134,7 @@ public class Duel {
     private void playerTurn(Player player, Monster monster) {
         this.attack(player, monster, Boolean.TRUE);
         monster.defense(player.getDamageDealt(), player.getDamageDealtType());
-        if (player instanceof ISpellCaster) {
+        if (player instanceof SpellCastable) {
             this.castSpecial(player, monster, Boolean.TRUE);
         }
     }
@@ -146,7 +142,7 @@ public class Duel {
     private void monsterTurn(Player player, Monster monster) {
         this.attack(player, monster, Boolean.FALSE);
         player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
-        if (monster instanceof ISpellCaster) {
+        if (monster instanceof SpellCastable) {
             this.castSpecial(player, monster, Boolean.FALSE);
         }
     }
@@ -154,16 +150,16 @@ public class Duel {
     private void attack(Player player, Monster monster, boolean heroCast) {
         int randomInt = this.rollingDie.roll();
         if (heroCast) {
-            if (player instanceof IBonusDamager) {
-                ((IBonusDamager) player).empowerAttack(randomInt);
-                ((IBonusDamager) player).resetDamage();
+            if (player instanceof BonusDamagеable) {
+                ((BonusDamagеable) player).empowerAttack(randomInt);
+                ((BonusDamagеable) player).resetDamage();
             } else {
                 player.attack();
             }
         } else {
-            if (monster instanceof IBonusDamager) {
-                ((IBonusDamager) monster).empowerAttack(randomInt);
-                ((IBonusDamager) monster).resetDamage();
+            if (monster instanceof BonusDamagеable) {
+                ((BonusDamagеable) monster).empowerAttack(randomInt);
+                ((BonusDamagеable) monster).resetDamage();
             } else {
                 monster.attack();
             }
@@ -176,14 +172,14 @@ public class Duel {
             if (player instanceof Warlock) {
                 ((Warlock) player).specialPenalty(randomInt);
             } else {
-                if (randomInt <= (((ISpellCaster) player).getSpecialPowerCastChance())) {
-                    ((ISpellCaster) player).castSpecial();
+                if (randomInt <= (((SpellCastable) player).getSpecialPowerCastChance())) {
+                    ((SpellCastable) player).castSpecial();
                     monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             }
         } else {
-            if (randomInt <= (((ISpellCaster) monster).getSpecialPowerCastChance())) {
-                ((ISpellCaster) monster).castSpecial();
+            if (randomInt <= (((SpellCastable) monster).getSpecialPowerCastChance())) {
+                ((SpellCastable) monster).castSpecial();
                 player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
             }
         }
@@ -197,7 +193,7 @@ public class Duel {
         }
         this.scanner.nextLine();
         if (this.scanner.hasNextLine()) {
-            this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.getMonsters());
+            this.duelPhase(this.getPlayer(), this.getMonster(), this.getRound(), this.monsters);
         }
     }
 

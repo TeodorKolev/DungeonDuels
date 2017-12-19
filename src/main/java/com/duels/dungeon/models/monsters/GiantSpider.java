@@ -1,13 +1,13 @@
 package com.duels.dungeon.models.monsters;
 
-import com.duels.dungeon.interfaces.ISpellCaster;
+import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.models.base.Monster;
 import com.duels.dungeon.models.base.SpecialPower;
 import com.duels.dungeon.models.spells.SpiderVenom;
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;
 
-public class GiantSpider extends Monster implements ISpellCaster {
+public class GiantSpider extends Monster implements SpellCastable {
 
     private SpecialPower specialPower;
 

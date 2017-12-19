@@ -3,11 +3,11 @@ package com.duels.dungeon.models.heroes;
 import com.duels.dungeon.models.base.Player;
 import com.duels.dungeon.models.base.SpecialPower;
 import com.duels.dungeon.utils.Constants;
-import com.duels.dungeon.interfaces.ISpellCaster;
+import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.models.spells.LightningBold;
 import com.duels.dungeon.utils.Printer;
 
-public class Mage extends Player implements ISpellCaster {
+public class Mage extends Player implements SpellCastable {
 
     private SpecialPower specialPower;
     private String name;

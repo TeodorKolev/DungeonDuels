@@ -1,14 +1,14 @@
 package com.duels.dungeon.models.heroes;
 
-import com.duels.dungeon.interfaces.IBonusDamager;
+import com.duels.dungeon.models.base.BonusDamagеable;
 import com.duels.dungeon.models.base.Player;
 import com.duels.dungeon.models.base.SpecialPower;
 import com.duels.dungeon.models.spells.Cleave;
 import com.duels.dungeon.utils.Constants;
-import com.duels.dungeon.interfaces.ISpellCaster;
+import com.duels.dungeon.models.base.SpellCastable;
 import com.duels.dungeon.utils.Printer;
 
-public class Warrior extends Player implements ISpellCaster, IBonusDamager {
+public class Warrior extends Player implements SpellCastable, BonusDamagеable {
 
     private SpecialPower specialPower;
     private String name;

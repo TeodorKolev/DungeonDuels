@@ -1,8 +1,6 @@
-package com.duels.dungeon.interfaces;
+package com.duels.dungeon.models.base;
 
-import com.duels.dungeon.models.base.SpecialPower;
-
-public interface ISpellCaster {
+public interface SpellCastable {
 
     SpecialPower getSpecialPower();
 
