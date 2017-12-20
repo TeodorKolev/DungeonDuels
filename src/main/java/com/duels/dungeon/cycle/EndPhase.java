@@ -9,11 +9,9 @@ import java.util.ArrayList;
 public class EndPhase {
 
     private Battle battle;
-    private Duel duel;
 
     public EndPhase(Battle battle) {
         this.battle = battle;
-        this.duel = battle.getDuel();
     }
 
     public void monsterDefeatPlayer() {

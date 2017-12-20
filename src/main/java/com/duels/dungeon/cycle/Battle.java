@@ -21,14 +21,6 @@ public class Battle {
         this.duel = duel;
     }
 
-    public Turn getTurn() {
-        return turn;
-    }
-
-    public EndPhase getEndPhase() {
-        return endPhase;
-    }
-
     public Duel getDuel() {
         return duel;
     }

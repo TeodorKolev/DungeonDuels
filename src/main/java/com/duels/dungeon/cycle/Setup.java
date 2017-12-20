@@ -17,18 +17,6 @@ public class Setup {
         this.nameSelector = new NameSelector();
     }
 
-    public Duel getDuel() {
-        return duel;
-    }
-
-    public ClassSelector getClassSelector() {
-        return classSelector;
-    }
-
-    public NameSelector getNameSelector() {
-        return nameSelector;
-    }
-
     public void setUpPlayer() {
        duel.setPlayer(classSelector.setPlayerClass(classSelector.selectPlayerClass(), nameSelector.setPlayerName()));
     }

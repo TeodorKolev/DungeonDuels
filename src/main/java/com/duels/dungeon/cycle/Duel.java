@@ -66,10 +66,6 @@ public class Duel {
         this.monsters = monsters;
     }
 
-    public Battle getBattle() {
-        return battle;
-    }
-
     public Setup getSetup() {
         return setup;
     }
