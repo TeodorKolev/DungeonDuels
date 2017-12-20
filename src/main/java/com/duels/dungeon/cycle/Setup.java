@@ -11,10 +11,22 @@ public class Setup {
     private ClassSelector classSelector;
     private NameSelector nameSelector;
 
-    public Setup() {
-        this.duel = new Duel();
+    public Setup(Duel duel) {
+        this.duel = duel;
         this.classSelector = new ClassSelector();
         this.nameSelector = new NameSelector();
+    }
+
+    public Duel getDuel() {
+        return duel;
+    }
+
+    public ClassSelector getClassSelector() {
+        return classSelector;
+    }
+
+    public NameSelector getNameSelector() {
+        return nameSelector;
     }
 
     public void setUpPlayer() {

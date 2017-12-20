@@ -11,9 +11,9 @@ public class EndPhase {
     private Battle battle;
     private Duel duel;
 
-    public EndPhase() {
-        this.battle = new Battle();
-        this.duel = new Duel();
+    public EndPhase(Battle battle) {
+        this.battle = battle;
+        this.duel = battle.getDuel();
     }
 
     public void monsterDefeatPlayer() {

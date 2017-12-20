@@ -22,7 +22,7 @@ public class Duel {
     private Setup setup;
 
     public Duel() {
-        this.battle = new Battle();
+        this.battle = new Battle(this);
         monsters = new ArrayList<Monster>();
         skeleton = new Skeleton();
         giantSpider = new GiantSpider();
@@ -31,7 +31,7 @@ public class Duel {
         monsters.add(giantSpider);
         monsters.add(minotaur);
         this.setMonsters(monsters);
-        this.setup = new Setup();
+        this.setup = new Setup(this);
     }
 
     public Player getPlayer() {
@@ -64,6 +64,14 @@ public class Duel {
 
     private void setMonsters(ArrayList<Monster> monsters) {
         this.monsters = monsters;
+    }
+
+    public Battle getBattle() {
+        return battle;
+    }
+
+    public Setup getSetup() {
+        return setup;
     }
 
     public void play() {

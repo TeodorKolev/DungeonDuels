@@ -13,14 +13,24 @@ public class Battle {
     private EndPhase endPhase;
     private Scanner scanner;
     private Duel duel;
-    private Setup setup;
 
-    public Battle() {
+    public Battle(Duel duel) {
         this.turn = new Turn();
-        this.endPhase = new EndPhase();
+        this.endPhase = new EndPhase(this);
         this.scanner = new Scanner(System.in);
-        this.duel = new Duel();
-        this.setup = new Setup();
+        this.duel = duel;
+    }
+
+    public Turn getTurn() {
+        return turn;
+    }
+
+    public EndPhase getEndPhase() {
+        return endPhase;
+    }
+
+    public Duel getDuel() {
+        return duel;
     }
 
     public void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
@@ -38,7 +48,7 @@ public class Battle {
     }
 
     public void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
-        setup.setUpMonster(monsters, round);
+        duel.getSetup().setUpMonster(monsters, round);
         player.replenishLife();
         this.processDuel(Boolean.FALSE);
     }
