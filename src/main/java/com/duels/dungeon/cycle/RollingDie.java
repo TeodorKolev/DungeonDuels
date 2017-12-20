@@ -12,7 +12,7 @@ public class RollingDie {
         this.random = new Random();
     }
 
-    public int getSidesCount() {
+    private int getSidesCount() {
         return sidesCount;
     }
 

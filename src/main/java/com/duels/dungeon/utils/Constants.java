@@ -55,7 +55,7 @@ public class Constants {
     public static final String FRENZY = "Frenzy";
 
     public static final String SOUL_TRADE = "Soul Trade";
-    public static final int SOUL_TRADE_DAMAGE = 40;
+    public static final int SOUL_TRADE_DAMAGE = 30;
 
     public static final String DAMAGE_TYPE_PHYSICAL = "physical";
     public static final String DAMAGE_TYPE_MAGIC = "magic";

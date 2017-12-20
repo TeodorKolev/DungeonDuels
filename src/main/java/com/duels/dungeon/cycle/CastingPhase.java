@@ -20,6 +20,9 @@ public class CastingPhase {
         if (heroCast) {
             if (player instanceof Warlock) {
                 ((Warlock) player).specialPenalty(randomInt);
+                if (randomInt <= (((SpellCastable) player).getSpecialPowerCastChance())) {
+                    monster.defense(player.getDamageDealt(), player.getDamageDealtType());
+                }
             } else {
                 if (randomInt <= (((SpellCastable) player).getSpecialPowerCastChance())) {
                     ((SpellCastable) player).castSpecial();

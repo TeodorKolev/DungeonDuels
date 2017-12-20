@@ -14,24 +14,21 @@ public class Duel {
     private Player player;
     private ArrayList<Monster> monsters;
     private Monster monster;
-    private int round;
     private Battle battle;
-    private Skeleton skeleton = new Skeleton();
-    private GiantSpider giantSpider = new GiantSpider();
-    private Minotaur minotaur = new Minotaur();
     private Setup setup;
+    private int round;
 
     public Duel() {
         this.battle = new Battle(this);
+        this.setup = new Setup(this);
         monsters = new ArrayList<Monster>();
-        skeleton = new Skeleton();
-        giantSpider = new GiantSpider();
-        minotaur = new Minotaur();
+        Skeleton skeleton = new Skeleton();
+        GiantSpider giantSpider = new GiantSpider();
+        Minotaur minotaur = new Minotaur();
         monsters.add(skeleton);
         monsters.add(giantSpider);
         monsters.add(minotaur);
         this.setMonsters(monsters);
-        this.setup = new Setup(this);
     }
 
     public Player getPlayer() {

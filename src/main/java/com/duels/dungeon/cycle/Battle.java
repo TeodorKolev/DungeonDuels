@@ -25,7 +25,19 @@ public class Battle {
         return duel;
     }
 
-    public void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
+    public void processDuel(boolean duelPhase) {
+        if (duelPhase == Boolean.TRUE) {
+            Printer.processDuelPhase();
+        } else {
+            Printer.beginDuel();
+        }
+        scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            this.duelPhase(duel.getPlayer(), duel.getMonster(), duel.getRound(), duel.getMonsters());
+        }
+    }
+
+    private void duelPhase(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         turn.playerTurn(player, monster);
         if (monster.isAlive()) {
             turn.monsterTurn(player, monster);
@@ -43,17 +55,5 @@ public class Battle {
         duel.getSetup().setUpMonster(monsters, round);
         player.replenishLife();
         this.processDuel(Boolean.FALSE);
-    }
-
-    public void processDuel(boolean duelPhase) {
-        if (duelPhase == Boolean.TRUE) {
-            Printer.processDuelPhase();
-        } else {
-            Printer.beginDuel();
-        }
-        scanner.nextLine();
-        if (scanner.hasNextLine()) {
-            this.duelPhase(duel.getPlayer(), duel.getMonster(), duel.getRound(), duel.getMonsters());
-        }
     }
 }
