@@ -1,6 +1,6 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.Monster;
+import com.duels.dungeon.models.creature.monster.Monster;
 import com.duels.dungeon.utils.Printer;
 
 import java.util.ArrayList;

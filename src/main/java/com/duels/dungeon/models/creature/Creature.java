@@ -1,5 +1,6 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature;
 
+import com.duels.dungeon.models.Entity;
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;
 

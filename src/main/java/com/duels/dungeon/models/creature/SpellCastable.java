@@ -1,4 +1,6 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature;
+
+import com.duels.dungeon.models.spell.SpecialPower;
 
 public interface SpellCastable {
 

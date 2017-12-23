@@ -1,10 +1,10 @@
-package com.duels.dungeon.models.heroes;
+package com.duels.dungeon.models.creature.player.heroes;
 
-import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.base.SpecialPower;
+import com.duels.dungeon.models.creature.player.Player;
+import com.duels.dungeon.models.spell.SpecialPower;
 import com.duels.dungeon.utils.Constants;
-import com.duels.dungeon.models.base.SpellCastable;
-import com.duels.dungeon.models.spells.LightningBold;
+import com.duels.dungeon.models.creature.SpellCastable;
+import com.duels.dungeon.models.spell.spells.LightningBold;
 import com.duels.dungeon.utils.Printer;
 
 public class Mage extends Player implements SpellCastable {

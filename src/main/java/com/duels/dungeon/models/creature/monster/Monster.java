@@ -1,5 +1,7 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature.monster;
 
+
+import com.duels.dungeon.models.creature.Creature;
 
 public abstract class Monster extends Creature {
 

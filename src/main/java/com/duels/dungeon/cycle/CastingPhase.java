@@ -1,9 +1,9 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.Monster;
-import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.base.SpellCastable;
-import com.duels.dungeon.models.heroes.Warlock;
+import com.duels.dungeon.models.creature.monster.Monster;
+import com.duels.dungeon.models.creature.player.Player;
+import com.duels.dungeon.models.creature.SpellCastable;
+import com.duels.dungeon.models.creature.player.heroes.Warlock;
 
 public class CastingPhase {
 

@@ -1,9 +1,9 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.heroes.Mage;
-import com.duels.dungeon.models.heroes.Warlock;
-import com.duels.dungeon.models.heroes.Warrior;
+import com.duels.dungeon.models.creature.player.Player;
+import com.duels.dungeon.models.creature.player.heroes.Mage;
+import com.duels.dungeon.models.creature.player.heroes.Warlock;
+import com.duels.dungeon.models.creature.player.heroes.Warrior;
 import com.duels.dungeon.utils.Printer;
 
 import java.util.Scanner;

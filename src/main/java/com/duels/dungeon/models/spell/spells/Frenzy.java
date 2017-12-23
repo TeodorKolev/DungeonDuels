@@ -1,6 +1,6 @@
-package com.duels.dungeon.models.spells;
+package com.duels.dungeon.models.spell.spells;
 
-import com.duels.dungeon.models.base.SpecialPower;
+import com.duels.dungeon.models.spell.SpecialPower;
 import com.duels.dungeon.utils.Constants;
 
 public class Frenzy extends SpecialPower {

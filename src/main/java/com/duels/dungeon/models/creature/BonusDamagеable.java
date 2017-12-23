@@ -1,4 +1,4 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature;
 
 public interface BonusDamagеable {
 

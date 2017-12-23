@@ -1,7 +1,7 @@
-package com.duels.dungeon.models.monsters;
+package com.duels.dungeon.models.creature.monster.monsters;
 
-import com.duels.dungeon.models.base.BonusDamagеable;
-import com.duels.dungeon.models.base.Monster;
+import com.duels.dungeon.models.creature.BonusDamagеable;
+import com.duels.dungeon.models.creature.monster.Monster;
 import com.duels.dungeon.utils.Constants;
 
 public class Skeleton extends Monster implements BonusDamagеable {

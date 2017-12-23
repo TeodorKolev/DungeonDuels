@@ -1,4 +1,6 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature.player;
+
+import com.duels.dungeon.models.creature.Creature;
 
 public abstract class Player extends Creature {
 

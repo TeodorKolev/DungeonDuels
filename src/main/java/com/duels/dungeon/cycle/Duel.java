@@ -1,10 +1,10 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.Monster;
-import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.monsters.GiantSpider;
-import com.duels.dungeon.models.monsters.Minotaur;
-import com.duels.dungeon.models.monsters.Skeleton;
+import com.duels.dungeon.models.creature.monster.Monster;
+import com.duels.dungeon.models.creature.player.Player;
+import com.duels.dungeon.models.creature.monster.monsters.GiantSpider;
+import com.duels.dungeon.models.creature.monster.monsters.Minotaur;
+import com.duels.dungeon.models.creature.monster.monsters.Skeleton;
 import com.duels.dungeon.utils.Printer;
 
 import java.util.ArrayList;

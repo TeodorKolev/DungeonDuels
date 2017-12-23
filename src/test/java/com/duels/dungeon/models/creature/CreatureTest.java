@@ -1,4 +1,4 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.creature;
 
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;
@@ -9,9 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 
 @RunWith(JUnitParamsRunner.class)
 public class CreatureTest {

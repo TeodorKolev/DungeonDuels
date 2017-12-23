@@ -1,8 +1,8 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.Monster;
-import com.duels.dungeon.models.base.Player;
-import com.duels.dungeon.models.base.SpellCastable;
+import com.duels.dungeon.models.creature.monster.Monster;
+import com.duels.dungeon.models.creature.player.Player;
+import com.duels.dungeon.models.creature.SpellCastable;
 
 public class Turn {
 

@@ -1,4 +1,6 @@
-package com.duels.dungeon.models.base;
+package com.duels.dungeon.models.spell;
+
+import com.duels.dungeon.models.Entity;
 
 public class SpecialPower extends Entity {
 

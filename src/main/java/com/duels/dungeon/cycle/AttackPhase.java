@@ -1,8 +1,8 @@
 package com.duels.dungeon.cycle;
 
-import com.duels.dungeon.models.base.BonusDamagеable;
-import com.duels.dungeon.models.base.Monster;
-import com.duels.dungeon.models.base.Player;
+import com.duels.dungeon.models.creature.BonusDamagеable;
+import com.duels.dungeon.models.creature.monster.Monster;
+import com.duels.dungeon.models.creature.player.Player;
 
 
 public class AttackPhase {

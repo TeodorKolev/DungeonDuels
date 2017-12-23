@@ -1,9 +1,9 @@
-package com.duels.dungeon.models.monsters;
+package com.duels.dungeon.models.creature.monster.monsters;
 
-import com.duels.dungeon.models.base.SpellCastable;
-import com.duels.dungeon.models.base.Monster;
-import com.duels.dungeon.models.base.SpecialPower;
-import com.duels.dungeon.models.spells.SpiderVenom;
+import com.duels.dungeon.models.creature.SpellCastable;
+import com.duels.dungeon.models.creature.monster.Monster;
+import com.duels.dungeon.models.spell.SpecialPower;
+import com.duels.dungeon.models.spell.spells.SpiderVenom;
 import com.duels.dungeon.utils.Constants;
 import com.duels.dungeon.utils.Printer;
 
