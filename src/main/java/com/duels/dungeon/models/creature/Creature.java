@@ -20,10 +20,10 @@ public class Creature extends Entity {
     private String damageDealtType;
 
     /** Creates an creature with the specified name, health, damage and defence.
-     * @param name from type String. The creature's new name.
-     * @param health from type int. The creature's health points.
-     * @param damage from type int. The creature's damage power.
-     * @param defense from type String. The creature's defence power.
+     * @param name The creature's new name. Type String.
+     * @param health The creature's health points. Type int.
+     * @param damage The creature's damage power. Type int.
+     * @param defense The creature's defense power. Type int
      */
     public Creature(String name, int health, int damage, int defense) {
         super(name);
@@ -50,7 +50,7 @@ public class Creature extends Entity {
 
     /**
      * Retrieve current creature's damage dealt.
-     * @return Creature's damage dealt type. Type String.
+     * @return creature's damage dealt type. Type String.
      */
     public int getDamageDealt() {
         return damageDealt;
@@ -58,7 +58,7 @@ public class Creature extends Entity {
 
     /**
      * Changes creature's damage dealt.
-     * @param damageDealt Creature's new damage dealt. Type int.
+     * @param damageDealt creature's new damage dealt. Type int.
      */
     protected void setDamageDealt(int damageDealt) {
         this.damageDealt = damageDealt;
@@ -74,7 +74,7 @@ public class Creature extends Entity {
 
     /**
      * Retrieve current Creature's health.
-     * @return Creature's current health. Type int.
+     * @return creature's current health. Type int.
      */
     protected int getHealth() {
         return health;
@@ -82,7 +82,7 @@ public class Creature extends Entity {
 
     /**
      * Changes creature's health.
-     * @param health Creature's new health. Type int.
+     * @param health creature's new health. Type int.
      */
     protected void setHealth(int health) {
         this.health = health;
@@ -90,7 +90,7 @@ public class Creature extends Entity {
 
     /**
      * Retrieve current creature's damage.
-     * @return Creature's damage. Type int.
+     * @return creature's damage. Type int.
      */
     public int getDamage() {
         return damage;
@@ -98,7 +98,7 @@ public class Creature extends Entity {
 
     /**
      * Changes creature's damage.
-     * @param damage Creature's new damage. Type int.
+     * @param damage creature's new damage. Type int.
      */
     protected void setDamage(int damage) {
         this.damage = damage;
@@ -136,8 +136,8 @@ public class Creature extends Entity {
     /**
      * Sets the creature's damage dealt, type of damage dealt and prints the result.
      * @param name Name of creature that deal damage. Type String.
-     * @param damage Creature's damage dealt. Type int.
-     * @param damageType Creature's damage dealt type. Type String.
+     * @param damage creature's damage dealt. Type int.
+     * @param damageType creature's damage dealt type. Type String.
      */
     protected void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);

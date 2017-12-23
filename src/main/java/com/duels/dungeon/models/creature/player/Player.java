@@ -12,10 +12,10 @@ import com.duels.dungeon.models.creature.Creature;
 public abstract class Player extends Creature {
 
     /** Creates an player with the specified name, health, damage and defense.
-     * @param name from type String. The creature's new name.
-     * @param health from type int. The creature's health points.
-     * @param damage from type int. The creature's damage power.
-     * @param defense from type String. The creature's defense power.
+     * @param name The creature's new name. Type String.
+     * @param health The creature's health points. Type int.
+     * @param damage The creature's damage power. Type int.
+     * @param defense The creature's defense power. Type int
      */
     public Player(String name, int health, int damage, int defense) {
         super(name, health, damage, defense);
