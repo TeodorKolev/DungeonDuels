@@ -24,7 +24,7 @@ public class Skeleton extends Monster implements BonusDamagеable {
      * Sets the skeleton's damage dealt.
      * Use params skeleton's name (type String),
      * skeleton's damage (type int),
-     * skeleton type physical.
+     * skeleton damage type physical.
      */
     @Override
     public void attack() {

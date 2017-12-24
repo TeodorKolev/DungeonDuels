@@ -38,6 +38,7 @@ public class Constants {
     public static final int GIANT_SPIDER_DEFENSE = 2;
     public static final int GIANT_SPIDER_HEALTH = 100;
     public static final int GIANT_SPIDER_CAST_SPECIAL_CHANCE = 20;
+    public static final int GIANT_SPIDER_CAST_SPECIAL_DIVISION_VALUE = 10;
 
     public static final String MINOTAUR = "Minotaur";
     public static final int MINOTAUR_DAMAGE = 11;
