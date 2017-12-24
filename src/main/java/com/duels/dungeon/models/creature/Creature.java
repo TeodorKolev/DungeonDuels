@@ -110,7 +110,7 @@ public class Creature extends Entity {
      * or boolean data type false if current Creature has less than one health point life.
      */
     public boolean isAlive() {
-        return this.getHealth() > 0;
+        return this.getHealth() > Constants.CREATURE_DEAD_VALUE;
     }
 
     /**

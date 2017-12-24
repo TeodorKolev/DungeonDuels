@@ -15,6 +15,8 @@ public class Constants {
     public static final int WARRIOR_DEFENSE = 4;
     public static final int WARRIOR_HEALTH = 100;
     public static final int WARRIOR_CAST_SPECIAL_CHANCE = 20;
+    public static final int WARRIOR_CLEAVE_DIVIDING = 2;
+    public static final int WARRIOR_EMPOWER_ATTACK_CHANCE_MULTIPLY_VALUE = 2;
 
     public static final String WARLOCK = "Warlock";
     public static final int WARLOCK_DAMAGE = 9;
@@ -59,4 +61,6 @@ public class Constants {
 
     public static final String DAMAGE_TYPE_PHYSICAL = "physical";
     public static final String DAMAGE_TYPE_MAGIC = "magic";
+
+    public static final int CREATURE_DEAD_VALUE = 0;
 }

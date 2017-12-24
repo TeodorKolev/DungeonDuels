@@ -53,7 +53,7 @@ public class Mage extends Player implements SpellCastable {
     /**
      * Sets the mage's damage taken.
      * @param monsterDamage incoming opponent's damage. Type int.
-     * @param monsterDamageType incoming opponent's damage type.
+     * @param monsterDamageType incoming opponent's damage type. Type String.
      * Use params current mage's name (type String)
      */
     @Override
@@ -93,7 +93,7 @@ public class Mage extends Player implements SpellCastable {
      * current mage's special power type (type String).
      * Print result.
      * Use params current mage's name (type String),
-     * current mage's special power name.
+     * current mage's special power name (type String).
      */
     @Override
     public void castSpecial() {

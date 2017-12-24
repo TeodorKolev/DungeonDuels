@@ -19,7 +19,7 @@ public class Warlock extends Player implements SpellCastable {
     private SpecialPower specialPower;
     private String name;
 
-    /** Creates an warlock's with the specified name, health, damage and defense.
+    /** Creates an warlock with the specified name, health, damage and defense.
      * @param name The warlock's new name. Type String.
      * Parameters name, health, damage and defense for super class Player.
      * Define warlock's special power. Type SpecialPower class.
@@ -53,7 +53,7 @@ public class Warlock extends Player implements SpellCastable {
     /**
      * Sets the warlock's damage taken.
      * @param monsterDamage incoming opponent's damage. Type int.
-     * @param monsterDamageType incoming opponent's damage type.
+     * @param monsterDamageType incoming opponent's damage type. Type String.
      * Use params current warlock's name (type String)
      */
     @Override
@@ -93,7 +93,7 @@ public class Warlock extends Player implements SpellCastable {
      * current warlock's special power type (type String).
      * Print result.
      * Use params current warlock's name (type String),
-     * current warlock's special power name.
+     * current warlock's special power name (type String).
      */
     @Override
     public void castSpecial() {
