@@ -54,6 +54,7 @@ public class Mage extends Player implements SpellCastable {
      * Sets the mage's damage taken.
      * @param monsterDamage incoming opponent's damage. Type int.
      * @param monsterDamageType incoming opponent's damage type.
+     * Use params current mage's name (type String)
      */
     @Override
     public void defense(int monsterDamage, String monsterDamageType) {
@@ -96,8 +97,8 @@ public class Mage extends Player implements SpellCastable {
      */
     @Override
     public void castSpecial() {
-        this.dealDamage(this.getName(), this.getSpecialPower().getDamage(), this.getSpecialPower().getType());
         Printer.castSpecial(this.getName(), this.getSpecialPower().getName());
+        this.dealDamage(this.getName(), this.getSpecialPower().getDamage(), this.getSpecialPower().getType());
     }
 
 }
