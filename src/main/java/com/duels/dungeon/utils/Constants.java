@@ -47,6 +47,7 @@ public class Constants {
     public static final int MINOTAUR_CAST_SPECIAL_CHANCE = 10;
     public static final int MINOTAUR_DAMAGE_BONUS_POINT = 1;
     public static final int MINOTAUR_DAMAGE_BONUS_CHANCE = 20;
+    public static final int MINOTAUR_EMPOWER_ATTACK_CHANCE_MULTIPLY_VALUE = 2;
 
     public static final String LIGHTNING_BOLD = "Lightning Bold";
     public static final int LIGHTNING_BOLD_DAMAGE = 8;
