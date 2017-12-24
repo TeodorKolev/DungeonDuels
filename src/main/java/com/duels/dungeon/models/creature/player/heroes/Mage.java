@@ -19,7 +19,8 @@ public class Mage extends Player implements SpellCastable {
     private SpecialPower specialPower;
     private String name;
 
-    /** Creates an mage with the specified name, health, damage and defense.
+    /**
+     * Creates an mage with the specified name, health, damage and defense.
      * @param name The mage's new name. Type String.
      * Parameters name, health, damage and defense for super class Player.
      * Define mage's special power. Type SpecialPower class.
@@ -61,7 +62,8 @@ public class Mage extends Player implements SpellCastable {
         this.takeDamage(this.getName(), monsterDamage, monsterDamageType);
     }
 
-    /** Restoring mage's life. Set current mage's health to maximum.
+    /**
+     * Restoring mage's life. Set current mage's health to maximum.
      */
     @Override
     public void replenishLife() {

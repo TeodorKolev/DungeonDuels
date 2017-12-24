@@ -19,7 +19,8 @@ public class Creature extends Entity {
     private int damageDealt;
     private String damageDealtType;
 
-    /** Creates an creature with the specified name, health, damage and defence.
+    /**
+     * Creates an creature with the specified name, health, damage and defence.
      * @param name The creature's new name. Type String.
      * @param health The creature's health points. Type int.
      * @param damage The creature's damage power. Type int.

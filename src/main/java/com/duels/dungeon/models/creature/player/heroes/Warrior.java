@@ -20,7 +20,8 @@ public class Warrior extends Player implements SpellCastable, BonusDamagеable {
     private SpecialPower specialPower;
     private String name;
 
-    /** Creates an warrior with the specified name, health, damage and defense.
+    /**
+     * Creates an warrior with the specified name, health, damage and defense.
      * @param name The warrior's new name. Type String.
      * Parameters name, health, damage and defense for super class Player.
      * Define warrior's special power. Cleave class with damage equals to half of current warrior's damage.
@@ -62,7 +63,8 @@ public class Warrior extends Player implements SpellCastable, BonusDamagеable {
         this.takeDamage(this.getName(), monsterDamage, monsterDamageType);
     }
 
-    /** Restoring warrior's life. Set current warrior's health to maximum.
+    /**
+     * Restoring warrior's life. Set current warrior's health to maximum.
      */
     @Override
     public void replenishLife() {
@@ -128,7 +130,8 @@ public class Warrior extends Player implements SpellCastable, BonusDamagеable {
         this.attack();
     }
 
-    /** Reset warrior's damage.
+    /**
+     * Reset warrior's damage.
      *  Set current warrior's damage to base damage of the class.
      */
     @Override

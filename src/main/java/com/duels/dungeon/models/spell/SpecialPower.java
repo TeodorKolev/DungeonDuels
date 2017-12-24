@@ -14,7 +14,8 @@ public class SpecialPower extends Entity {
     private String type;
     private int damage;
 
-    /** Creates an spell power with the specified name, type, and damage.
+    /**
+     * Creates an spell power with the specified name, type, and damage.
      * @param name The spell power's new name. Type String.
      * @param type The spell power's damage type. Type String.
      * @param damage The spell power's damage power. Type int.
@@ -25,7 +26,8 @@ public class SpecialPower extends Entity {
         this.damage = damage;
     }
 
-    /** Creates an spell power with the specified name and type.
+    /**
+     * Creates an spell power with the specified name and type.
      * @param name The spell power's new name. Type String.
      * @param type The spell power's damage type. Type String.
      */
@@ -34,7 +36,8 @@ public class SpecialPower extends Entity {
         this.type = type;
     }
 
-    /** Creates an spell power with the specified name.
+    /**
+     * Creates an spell power with the specified name.
      * @param name The spell power's new name. Type String.
      */
     public SpecialPower(String name) {

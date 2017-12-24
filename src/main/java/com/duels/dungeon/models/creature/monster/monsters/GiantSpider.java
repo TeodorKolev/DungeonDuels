@@ -17,7 +17,8 @@ public class GiantSpider extends Monster implements SpellCastable {
 
     private SpecialPower specialPower;
 
-    /** Creates an gian spider with the specified name, health, damage and defense.
+    /**
+     * Creates an gian spider with the specified name, health, damage and defense.
      * Parameters name, health, damage and defense for super class Monster.
      * Define gian spider's special power. SpiderVenom class
      * with damage predefined int parameter plus one tenth of spider health.

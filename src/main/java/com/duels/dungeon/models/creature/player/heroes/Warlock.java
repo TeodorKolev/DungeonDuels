@@ -19,7 +19,8 @@ public class Warlock extends Player implements SpellCastable {
     private SpecialPower specialPower;
     private String name;
 
-    /** Creates an warlock with the specified name, health, damage and defense.
+    /**
+     * Creates an warlock with the specified name, health, damage and defense.
      * @param name The warlock's new name. Type String.
      * Parameters name, health, damage and defense for super class Player.
      * Define warlock's special power. Type SpecialPower class.
@@ -61,7 +62,8 @@ public class Warlock extends Player implements SpellCastable {
         this.takeDamage(this.getName(), monsterDamage, monsterDamageType);
     }
 
-    /** Restoring warlock's life. Set current warlock's health to maximum.
+    /**
+     * Restoring warlock's life. Set current warlock's health to maximum.
      */
     @Override
     public void replenishLife() {

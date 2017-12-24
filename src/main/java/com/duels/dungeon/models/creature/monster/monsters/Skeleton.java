@@ -13,7 +13,8 @@ import com.duels.dungeon.utils.Constants;
  */
 public class Skeleton extends Monster implements BonusDamagеable {
 
-    /** Creates an skeleton with the specified name, health, damage and defense.
+    /**
+     * Creates an skeleton with the specified name, health, damage and defense.
      * Parameters name, health, damage and defense for super class Player.
      */
     public Skeleton() {
@@ -68,7 +69,8 @@ public class Skeleton extends Monster implements BonusDamagеable {
         this.attack();
     }
 
-    /** Reset skeleton's damage.
+    /**
+     * Reset skeleton's damage.
      *  Set skeleton's damage to base damage of the class.
      */
     @Override

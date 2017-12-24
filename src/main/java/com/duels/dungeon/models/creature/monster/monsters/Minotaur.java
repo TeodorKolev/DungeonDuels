@@ -19,7 +19,8 @@ public class Minotaur extends Monster implements BonusDamagеable, SpellCastable
 
     private SpecialPower specialPower;
 
-    /** Creates an minotaur with the specified name, health, damage and defense.
+    /**
+     * Creates an minotaur with the specified name, health, damage and defense.
      * Parameters name, health, damage and defense for super class Monster.
      * Define minotaur's special power. Frenzy class
      */
@@ -76,7 +77,8 @@ public class Minotaur extends Monster implements BonusDamagеable, SpellCastable
         this.attack();
     }
 
-    /** Reset minotaur's damage.
+    /**
+     * Reset minotaur's damage.
      *  Set minotaur's damage to base damage of the class.
      */
     @Override

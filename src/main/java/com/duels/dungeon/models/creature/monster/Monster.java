@@ -12,7 +12,8 @@ import com.duels.dungeon.models.creature.Creature;
  */
 public abstract class Monster extends Creature {
 
-    /** Creates an monster with the specified name, health, damage and defense.
+    /**
+     * Creates an monster with the specified name, health, damage and defense.
      * @param name The monster's new name. Type String.
      * @param health The monster's health points. Type int.
      * @param damage The monster's damage power. Type int.
@@ -23,11 +24,13 @@ public abstract class Monster extends Creature {
     }
 
 
-    /** Monster attack action. Abstract method that child must implements.
+    /**
+     * Monster attack action. Abstract method that child must implements.
      */
     public abstract void attack();
 
-    /** Monster defense action. Abstract method that child must implements.
+    /**
+     * Monster defense action. Abstract method that child must implements.
      * @param playerDamage Damage taken by the monster. Type int
      * @param playerDamageType Damage type of damage taken by the monster. Type String.
      */

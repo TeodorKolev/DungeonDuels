@@ -11,7 +11,8 @@ import com.duels.dungeon.models.creature.Creature;
  */
 public abstract class Player extends Creature {
 
-    /** Creates an player with the specified name, health, damage and defense.
+    /**
+     * Creates an player with the specified name, health, damage and defense.
      * @param name The player's new name. Type String.
      * @param health The player's health points. Type int.
      * @param damage The player's damage power. Type int.
@@ -21,18 +22,21 @@ public abstract class Player extends Creature {
         super(name, health, damage, defense);
     }
 
-    /** Player attack action. Abstract method that child must implements.
+    /**
+     * Player attack action. Abstract method that child must implements.
      */
     public abstract void attack();
 
 
-    /** Player defense action. Abstract method that child must implements.
+    /**
+     * Player defense action. Abstract method that child must implements.
      * @param damage Damage taken by the player. Type int
      * @param damage Damage type of damage taken by the player. Type String.
      */
     public abstract void defense(int damage, String damageType);
 
-    /** Restoring player's life action. Abstract method that child must implements.
+    /**
+     * Restoring player's life action. Abstract method that child must implements.
      */
     public abstract void replenishLife();
 
