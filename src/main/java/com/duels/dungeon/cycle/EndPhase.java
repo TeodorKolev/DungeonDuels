@@ -42,6 +42,7 @@ public class EndPhase {
     public void playerDefeatMonster(Player player, Monster monster, int round, ArrayList<Monster> monsters) {
         Printer.playerDefeatMonster(player.getName(), monster.getName());
         battle.getDuel().setRound(round += 1);
+        // Round start from zero. Array length from 1.
         if (round + 1 > monsters.size()) {
             Printer.victory(player.getName());
         } else {
