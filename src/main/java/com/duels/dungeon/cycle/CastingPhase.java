@@ -4,6 +4,7 @@ import com.duels.dungeon.models.creature.monster.Monster;
 import com.duels.dungeon.models.creature.player.Player;
 import com.duels.dungeon.models.creature.SpellCastable;
 import com.duels.dungeon.models.creature.player.heroes.Warlock;
+import com.duels.dungeon.utils.Constants;
 
 /**
  * Represents an duel casting phase.
@@ -24,7 +25,7 @@ public class CastingPhase {
      */
     public CastingPhase() {
         this.rollingDie = new RollingDie();
-        this.randomInt = 0;
+        this.randomInt = Constants.RANDOM_INT_DEFAULT_VALUE;
     }
 
     /**

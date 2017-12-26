@@ -2,12 +2,14 @@ package com.duels.dungeon.utils;
 
 public class Constants {
 
+    public static final int MAGE_ID = 2;
     public static final String MAGE = "Mage";
     public static final int MAGE_DAMAGE = 9;
     public static final int MAGE_DEFENSE = 3;
     public static final int MAGE_HEALTH = 100;
     public static final int MAGE_CAST_SPECIAL_CHANCE = 33;
 
+    public static final int WARRIOR_ID = 1;
     public static final String WARRIOR = "Warrior";
     public static final int WARRIOR_DAMAGE = 11;
     public static final int WARRIOR_DAMAGE_BONUS_POINT = 1;
@@ -18,6 +20,7 @@ public class Constants {
     public static final int WARRIOR_CLEAVE_DIVIDING = 2;
     public static final int WARRIOR_EMPOWER_ATTACK_CHANCE_MULTIPLY_VALUE = 2;
 
+    public static final int WARLOCK_ID = 3;
     public static final String WARLOCK = "Warlock";
     public static final int WARLOCK_DAMAGE = 9;
     public static final int WARLOCK_DEFENSE = 3;
@@ -66,4 +69,6 @@ public class Constants {
     public static final String DAMAGE_TYPE_MAGIC = "magic";
 
     public static final int CREATURE_DEAD_VALUE = 0;
+    public static final int RANDOM_INT_DEFAULT_VALUE = 0;
+
 }
