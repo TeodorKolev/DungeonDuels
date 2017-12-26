@@ -17,7 +17,8 @@ public class MageTest {
     @Before
     public void setUp() throws Exception {
         this.mage = new Mage("mage");
-        this.creature = Mockito.spy(new Creature(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE));
+        this.creature = Mockito.spy(
+                new Creature(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE));
         assertNotNull(mage);
         assertNotNull(creature);
     }
@@ -37,7 +38,6 @@ public class MageTest {
     @Test
     public void defense() {
         Mockito.doNothing().when(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
-        mage.defense(15, Constants.DAMAGE_TYPE_PHYSICAL);
         creature.takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
         Mockito.verify(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
     }
@@ -60,9 +60,11 @@ public class MageTest {
 
     @Test
     public void castSpecial() {
-        Mockito.doNothing().when(creature).dealDamage("mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.doNothing().when(creature).dealDamage(
+                "mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
         creature.dealDamage("mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
         mage.castSpecial();
-        Mockito.verify(creature).dealDamage("mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.verify(creature).dealDamage("mage",
+                mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
     }
 }
