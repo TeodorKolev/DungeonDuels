@@ -6,7 +6,7 @@ import com.duels.dungeon.utils.Printer;
 import java.util.ArrayList;
 
 /**
- * Represents an setup.
+ * Represents an duel setup.
  * @author Teodor Kolev
  * @author https://github.com/TeodorKolev
  * @version 1.0
