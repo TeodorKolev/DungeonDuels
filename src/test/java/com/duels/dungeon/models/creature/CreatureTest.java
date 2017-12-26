@@ -10,18 +10,17 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
-@RunWith(JUnitParamsRunner.class)
 public class CreatureTest {
 
     private Creature creature;
-    private Printer printer;
 
     @Before
     @Test
     public void setUp() throws Exception {
         this.creature = new Creature("Name", 20, 20, 5);
-        this.printer = mock(Printer.class);
         assertNotNull(creature);
     }
 
@@ -46,7 +45,6 @@ public class CreatureTest {
         this.creature.setDamageDealt(20);
         assertEquals(this.creature.getDamageDealt(), 20);
         assertNotEquals(this.creature.getDamageDealt(), "wrong");
-        assertNotNull(this.creature.getDamageDealt());
     }
 
     @Test
@@ -54,21 +52,18 @@ public class CreatureTest {
         this.creature.setDamageDealt(20);
         assertEquals(this.creature.getDamageDealt(), 20);
         assertNotEquals(this.creature.getDamageDealt(), "wrong");
-        assertNotNull(this.creature.getDamageDealt());
     }
 
     @Test
     public void getDefense() throws Exception {
         assertEquals(this.creature.getDefense(), 5);
         assertNotEquals(this.creature.getDefense(), "wrong");
-        assertNotNull(this.creature.getDefense());
     }
 
     @Test
     public void getHealth() throws Exception {
         assertEquals(this.creature.getHealth(), 20);
         assertNotEquals(this.creature.getHealth(), "wrong");
-        assertNotNull(this.creature.getHealth());
     }
 
     @Test
@@ -76,14 +71,12 @@ public class CreatureTest {
         this.creature.setHealth(21);
         assertEquals(this.creature.getHealth(), 21);
         assertNotEquals(this.creature.getHealth(), 20);
-        assertNotNull(this.creature.getHealth());
     }
 
     @Test
     public void getDamage() throws Exception {
         assertEquals(this.creature.getDamage(), 20);
         assertNotEquals(this.creature.getDamage(), 21);
-        assertNotNull(this.creature.getDamage());
     }
 
     @Test
@@ -91,7 +84,6 @@ public class CreatureTest {
         this.creature.setDamage(21);
         assertEquals(this.creature.getDamage(), 21);
         assertNotEquals(this.creature.getDamage(), 20);
-        assertNotNull(this.creature.getDamage());
     }
 
     @Test
@@ -102,25 +94,21 @@ public class CreatureTest {
     }
 
     @Test
-    @Parameters({"Name, 20, physical"})
-    public void takeDamage(String name, int damage, String damageType) throws Exception {
-        int damageReduced;
-        damageReduced = (damage - this.creature.getDefense());
-        this.creature.setHealth(this.creature.getHealth() - damageReduced);
-
-        assertEquals(damageType, Constants.DAMAGE_TYPE_PHYSICAL);
-        assertEquals(damageReduced, 15);
-        assertNotEquals(damageReduced, 20);
-        assertEquals(this.creature.getHealth(), 5);
-        assertNotEquals(this.creature.getHealth(), 20);
+    public void takeDamagePhysical() throws Exception {
+        creature.takeDamage("name", 10, Constants.DAMAGE_TYPE_PHYSICAL);
+        assertEquals(creature.getHealth(), 15);
     }
 
     @Test
-    @Parameters({"Name, 30, physical"})
-    public void dealDamage(String name, int damage, String damageType) throws Exception {
-        this.creature.setDamageDealt(damage);
-        this.creature.setDamageDealtType(damageType);
-        assertEquals(this.creature.getDamageDealt(), damage);
+    public void takeDamageMagical() throws Exception {
+        creature.takeDamage("name", 10, Constants.DAMAGE_TYPE_MAGIC);
+        assertEquals(creature.getHealth(), 10);
+    }
+
+    @Test
+    public void dealDamage() throws Exception {
+        this.creature.dealDamage("Name",30, Constants.DAMAGE_TYPE_PHYSICAL);
+        assertEquals(this.creature.getDamageDealt(), 30);
         assertEquals(this.creature.getDamageDealtType(), Constants.DAMAGE_TYPE_PHYSICAL);
     }
 }
