@@ -77,7 +77,7 @@ public class Creature extends Entity {
      * Retrieve current Creature's health.
      * @return creature's current health. Type int.
      */
-    protected int getHealth() {
+    public int getHealth() {
         return health;
     }
 
@@ -122,7 +122,7 @@ public class Creature extends Entity {
      * @param damage Incoming damage. Type int.
      * @param damageType Incoming damage type. Type int.
      */
-    protected void takeDamage(String name, int damage, String damageType) {
+    public void takeDamage(String name, int damage, String damageType) {
         int damageReduced;
         if (damageType.equals(Constants.DAMAGE_TYPE_PHYSICAL)) {
             damageReduced = (damage - this.getDefense());
@@ -140,7 +140,7 @@ public class Creature extends Entity {
      * @param damage creature's damage dealt. Type int.
      * @param damageType creature's damage dealt type. Type String.
      */
-    protected void dealDamage(String name, int damage, String damageType) {
+    public void dealDamage(String name, int damage, String damageType) {
         this.setDamageDealt(damage);
         this.setDamageDealtType(damageType);
         Printer.dealDamage(name, damage);
