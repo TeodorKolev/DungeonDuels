@@ -26,71 +26,71 @@ public class CreatureTest {
 
     @Test
     public void getDamageDealtType() throws Exception {
-        this.creature.setDamageDealtType("magical");
-        assertEquals(this.creature.getDamageDealtType(), "magical");
-        assertNotEquals(this.creature.getDamageDealtType(), "wrong");
-        assertNotNull(this.creature.getDamageDealtType());
+        creature.setDamageDealtType("magical");
+        assertEquals(creature.getDamageDealtType(), "magical");
+        assertNotEquals(creature.getDamageDealtType(), "wrong");
+        assertNotNull(creature.getDamageDealtType());
     }
 
     @Test
     public void setDamageDealtType() throws Exception {
-        this.creature.setDamageDealtType("magical");
-        assertEquals(this.creature.getDamageDealtType(), "magical");
-        assertNotEquals(this.creature.getDamageDealtType(), "wrong");
-        assertNotNull(this.creature.getDamageDealtType());
+        creature.setDamageDealtType("magical");
+        assertEquals(creature.getDamageDealtType(), "magical");
+        assertNotEquals(creature.getDamageDealtType(), "wrong");
+        assertNotNull(creature.getDamageDealtType());
     }
 
     @Test
     public void getDamageDealt() throws Exception {
-        this.creature.setDamageDealt(20);
-        assertEquals(this.creature.getDamageDealt(), 20);
-        assertNotEquals(this.creature.getDamageDealt(), "wrong");
+        creature.setDamageDealt(20);
+        assertEquals(creature.getDamageDealt(), 20);
+        assertNotEquals(creature.getDamageDealt(), "wrong");
     }
 
     @Test
     public void setDamageDealt() throws Exception {
-        this.creature.setDamageDealt(20);
-        assertEquals(this.creature.getDamageDealt(), 20);
-        assertNotEquals(this.creature.getDamageDealt(), "wrong");
+        creature.setDamageDealt(20);
+        assertEquals(creature.getDamageDealt(), 20);
+        assertNotEquals(creature.getDamageDealt(), "wrong");
     }
 
     @Test
     public void getDefense() throws Exception {
-        assertEquals(this.creature.getDefense(), 5);
-        assertNotEquals(this.creature.getDefense(), "wrong");
+        assertEquals(creature.getDefense(), 5);
+        assertNotEquals(creature.getDefense(), "wrong");
     }
 
     @Test
     public void getHealth() throws Exception {
-        assertEquals(this.creature.getHealth(), 20);
-        assertNotEquals(this.creature.getHealth(), "wrong");
+        assertEquals(creature.getHealth(), 20);
+        assertNotEquals(creature.getHealth(), "wrong");
     }
 
     @Test
     public void setHealth() throws Exception {
-        this.creature.setHealth(21);
-        assertEquals(this.creature.getHealth(), 21);
-        assertNotEquals(this.creature.getHealth(), 20);
+        creature.setHealth(21);
+        assertEquals(creature.getHealth(), 21);
+        assertNotEquals(creature.getHealth(), 20);
     }
 
     @Test
     public void getDamage() throws Exception {
-        assertEquals(this.creature.getDamage(), 20);
-        assertNotEquals(this.creature.getDamage(), 21);
+        assertEquals(creature.getDamage(), 20);
+        assertNotEquals(creature.getDamage(), 21);
     }
 
     @Test
     public void setDamage() throws Exception {
-        this.creature.setDamage(21);
-        assertEquals(this.creature.getDamage(), 21);
-        assertNotEquals(this.creature.getDamage(), 20);
+        creature.setDamage(21);
+        assertEquals(creature.getDamage(), 21);
+        assertNotEquals(creature.getDamage(), 20);
     }
 
     @Test
     public void isAlive() throws Exception {
-        assertTrue(this.creature.isAlive());
-        this.creature.setHealth(0);
-        assertFalse(this.creature.isAlive());
+        assertTrue(creature.isAlive());
+        creature.setHealth(0);
+        assertFalse(creature.isAlive());
     }
 
     @Test
@@ -107,8 +107,8 @@ public class CreatureTest {
 
     @Test
     public void dealDamage() throws Exception {
-        this.creature.dealDamage("Name",30, Constants.DAMAGE_TYPE_PHYSICAL);
-        assertEquals(this.creature.getDamageDealt(), 30);
-        assertEquals(this.creature.getDamageDealtType(), Constants.DAMAGE_TYPE_PHYSICAL);
+        creature.dealDamage("Name",30, Constants.DAMAGE_TYPE_PHYSICAL);
+        assertEquals(creature.getDamageDealt(), 30);
+        assertEquals(creature.getDamageDealtType(), Constants.DAMAGE_TYPE_PHYSICAL);
     }
 }
