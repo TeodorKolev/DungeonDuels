@@ -25,7 +25,6 @@ public class NameSelector {
 
     /**
      * Sets player name from user input and capitalize it.
-     * Defines scanner. Type Scanner class.
      * @return player name. Type String.
      */
     public String setPlayerName() {
