@@ -111,7 +111,7 @@ public class Minotaur extends Monster implements BonusDamagеable, SpellCastable
      */
     @Override
     public void castSpecial() {
-        if (getSpecialPower() instanceof Frenzy) {
+        if (this.getSpecialPower() instanceof Frenzy) {
             Printer.minotaurCastSpecial(this.getName(), this.getSpecialPower().getName());
             this.attack();
         }
