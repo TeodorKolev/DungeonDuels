@@ -40,7 +40,7 @@ public class RollingDie {
      */
     public int roll() {
         // Random starts from zero. Needs to add 1 to get 100 instead of 99.
-        return random.nextInt(this.getPercents()) + 1;
+        return random.nextInt( 1 + this.getPercents());
     }
 
 }
