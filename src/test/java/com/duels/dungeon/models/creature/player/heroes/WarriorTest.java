@@ -31,18 +31,18 @@ public class WarriorTest {
 
     @Test
     public void attack() {
-        Mockito.doNothing().when(creature).dealDamage("warrior", 9, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.dealDamage("warrior", 9, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warrior.attack();
-        Mockito.verify(creature).dealDamage("warrior", 9, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
     public void defense() {
-        Mockito.doNothing().when(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warrior.defense(15, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.verify(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
+        creature.takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
@@ -63,12 +63,10 @@ public class WarriorTest {
 
     @Test
     public void castSpecial() {
-        Mockito.doNothing().when(creature).dealDamage(
-                "warrior", warrior.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
-        creature.dealDamage("warrior", warrior.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warrior.castSpecial();
-        Mockito.verify(creature).dealDamage("warrior",
-                warrior.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test

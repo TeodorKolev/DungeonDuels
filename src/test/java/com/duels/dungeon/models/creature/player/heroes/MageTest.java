@@ -30,16 +30,18 @@ public class MageTest {
 
     @Test
     public void attack() {
-        Mockito.doNothing().when(creature).dealDamage("mage", 9, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.dealDamage("mage", 9, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.verify(creature).dealDamage("mage", 9, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        mage.attack();
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
     public void defense() {
-        Mockito.doNothing().when(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.verify(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        mage.defense(15, Constants.DAMAGE_TYPE_PHYSICAL);
+        creature.takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
@@ -60,11 +62,9 @@ public class MageTest {
 
     @Test
     public void castSpecial() {
-        Mockito.doNothing().when(creature).dealDamage(
-                "mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
-        creature.dealDamage("mage", mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         mage.castSpecial();
-        Mockito.verify(creature).dealDamage("mage",
-                mage.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 }
