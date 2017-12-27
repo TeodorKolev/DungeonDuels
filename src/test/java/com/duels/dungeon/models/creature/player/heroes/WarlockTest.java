@@ -31,18 +31,18 @@ public class WarlockTest {
 
     @Test
     public void attack() {
-        Mockito.doNothing().when(creature).dealDamage("warlock", 9, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.dealDamage("warlock", 9, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warlock.attack();
-        Mockito.verify(creature).dealDamage("warlock", 9, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
     public void defense() {
-        Mockito.doNothing().when(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
+        Mockito.doNothing().when(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warlock.defense(15, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.verify(creature).takeDamage("monster", 15, Constants.DAMAGE_TYPE_PHYSICAL);
+        creature.takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
@@ -63,27 +63,30 @@ public class WarlockTest {
 
     @Test
     public void castSpecial() {
-        Mockito.doNothing().when(creature).dealDamage(
-                "warlock", warlock.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
-        creature.dealDamage("warlock", warlock.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warlock.castSpecial();
-        Mockito.verify(creature).dealDamage("warlock",
-                warlock.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
     @Test
-    public void specialPenalty() {
-        Mockito.doNothing().when(creature).takeDamage("warlock",
-                Constants.WARLOCK_CAST_SPECIAL_PENALTY, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.doNothing().when(creature).dealDamage("warlock", warlock.getSpecialPower().getDamage(),
-                Constants.DAMAGE_TYPE_MAGIC);
+    public void specialPenaltyCastSuccess() {
+        Mockito.doNothing().when(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.doNothing().when(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
         warlock.specialPenalty(10);
-        creature.takeDamage("warlock", Constants.WARLOCK_CAST_SPECIAL_PENALTY, Constants.DAMAGE_TYPE_PHYSICAL);
-        creature.dealDamage("warlock", warlock.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
-        Mockito.verify(creature).takeDamage("warlock",
-                Constants.WARLOCK_CAST_SPECIAL_PENALTY, Constants.DAMAGE_TYPE_PHYSICAL);
-        Mockito.verify(creature).dealDamage("warlock",
-                warlock.getSpecialPower().getDamage(), Constants.DAMAGE_TYPE_MAGIC);
+        creature.takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        creature.dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+    }
+
+    @Test
+    public void specialPenaltyCastFailed() {
+        Mockito.doNothing().when(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        warlock.specialPenalty(67);
+        creature.takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature).takeDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
+        Mockito.verify(creature, Mockito.never()).dealDamage(Mockito.anyString(), Mockito.anyInt(), Mockito.anyString());
     }
 
 }
