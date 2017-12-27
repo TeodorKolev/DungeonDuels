@@ -61,7 +61,7 @@ public class Creature extends Entity {
      * Changes creature's damage dealt.
      * @param damageDealt creature's new damage dealt. Type int.
      */
-    protected void setDamageDealt(int damageDealt) {
+    public void setDamageDealt(int damageDealt) {
         this.damageDealt = damageDealt;
     }
 
