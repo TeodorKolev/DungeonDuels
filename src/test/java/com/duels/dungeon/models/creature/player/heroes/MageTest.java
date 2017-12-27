@@ -17,8 +17,8 @@ public class MageTest {
     @Before
     public void setUp() throws Exception {
         this.mage = new Mage("mage");
-        this.creature = Mockito.spy(
-                new Creature(Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE));
+        this.creature = Mockito.spy(new Creature(
+                Constants.MAGE, Constants.MAGE_HEALTH, Constants.MAGE_DAMAGE, Constants.MAGE_DEFENSE));
         assertNotNull(mage);
         assertNotNull(creature);
     }

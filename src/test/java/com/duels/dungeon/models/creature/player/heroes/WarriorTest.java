@@ -17,9 +17,8 @@ public class WarriorTest {
     @Before
     public void setUp() throws Exception {
         this.warrior = new Warrior("warrior");
-        this.creature = Mockito.spy(
-                new Creature(Constants.WARRIOR, Constants.WARRIOR_HEALTH,
-                        Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE));
+        this.creature = Mockito.spy(new Creature(
+                Constants.WARRIOR, Constants.WARRIOR_HEALTH, Constants.WARRIOR_DAMAGE, Constants.WARRIOR_DEFENSE));
         assertNotNull(warrior);
         assertNotNull(creature);
     }

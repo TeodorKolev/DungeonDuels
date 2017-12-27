@@ -17,9 +17,8 @@ public class WarlockTest {
     @Before
     public void setUp() throws Exception {
         this.warlock = new Warlock("warlock");
-        this.creature = Mockito.spy(
-                new Creature(Constants.WARLOCK, Constants.WARLOCK_HEALTH,
-                        Constants.WARLOCK_DAMAGE, Constants.WARLOCK_DEFENSE));
+        this.creature = Mockito.spy(new Creature(
+                Constants.WARLOCK, Constants.WARLOCK_HEALTH, Constants.WARLOCK_DAMAGE, Constants.WARLOCK_DEFENSE));
         assertNotNull(warlock);
         assertNotNull(creature);
     }
