@@ -29,6 +29,22 @@ public class CastingPhase {
     }
 
     /**
+     * Changes casting phase's random number.
+     * @param randomInt casting phase's new random int. Type int.
+     */
+    public void setRandomInt(int randomInt) {
+        this.randomInt = randomInt;
+    }
+
+    /**
+     * Retrieve random int.
+     * @return randomInt. Type int.
+     */
+    public int getRandomInt() {
+        return randomInt;
+    }
+
+    /**
      * Casting phase. Fires player cast action or monster cast action according to
      * boolean parameter heroCast. Defines random number randomInt via RollingDie roll method.
      * If it is player turn - fire cast player action and monster defence action and vice versa.
@@ -39,24 +55,25 @@ public class CastingPhase {
      * @param heroCast distinguish player from monster turn. Type boolean.
      */
     public void castSpecial(Player player, Monster monster, boolean heroCast) {
-        randomInt = rollingDie.roll();
+        this.setRandomInt(rollingDie.roll());
         if (heroCast) {
             if (player instanceof Warlock) {
-                ((Warlock) player).specialPenalty(randomInt);
-                if (randomInt <= (((SpellCastable) player).getSpecialPowerCastChance())) {
+                ((Warlock) player).specialPenalty(this.getRandomInt());
+                if (this.getRandomInt() <= (((SpellCastable) player).getSpecialPowerCastChance())) {
                     monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             } else {
-                if (randomInt <= (((SpellCastable) player).getSpecialPowerCastChance())) {
+                if (this.getRandomInt() <= (((SpellCastable) player).getSpecialPowerCastChance())) {
                     ((SpellCastable) player).castSpecial();
                     monster.defense(player.getDamageDealt(), player.getDamageDealtType());
                 }
             }
         } else {
-            if (randomInt <= (((SpellCastable) monster).getSpecialPowerCastChance())) {
+            if (this.getRandomInt() <= (((SpellCastable) monster).getSpecialPowerCastChance())) {
                 ((SpellCastable) monster).castSpecial();
                 player.defense(monster.getDamageDealt(), monster.getDamageDealtType());
             }
         }
     }
+
 }
