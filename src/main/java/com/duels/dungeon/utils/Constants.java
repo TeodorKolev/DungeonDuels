@@ -71,7 +71,7 @@ public class Constants {
     public static final int CREATURE_DEAD_VALUE = 0;
     public static final int RANDOM_INT_DEFAULT_VALUE = 0;
     public static final int DUEL_STARTING_ROUND_VALUE = 0;
-    public static final int ROLLING_DIE_PERCENTS_DEFAULT_VALUE = 0;
+    public static final int ROLLING_DIE_PERCENTS_DEFAULT_VALUE = 100;
 
 
 
