@@ -51,10 +51,10 @@ public class Battle {
     public void processDuel(boolean duelPhase) {
         if (duelPhase == Boolean.TRUE) {
             Printer.processDuelPhase();
+            scanner.nextLine();
         } else {
             Printer.beginDuel();
         }
-        scanner.nextLine();
         if (scanner.hasNextLine()) {
             this.duelPhase(duel.getPlayer(), duel.getMonster(), duel.getRound(), duel.getMonsters());
         }
@@ -93,6 +93,6 @@ public class Battle {
     public void faceNextEnemy(ArrayList<Monster> monsters, int round, Player player) {
         duel.getSetup().setUpMonster(monsters, round);
         player.replenishLife();
-        this.processDuel(Boolean.FALSE);
+        this.processDuel(Boolean.TRUE);
     }
 }
