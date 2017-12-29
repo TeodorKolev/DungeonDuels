@@ -42,14 +42,17 @@ public class BattleTest {
 
     @Test
     public void getDuel() {
+        battle.getDuel();
         assertNotNull(this.battle.getDuel());
     }
 
     @Test
     public void processDuel() {
+        // TODO
     }
 
     @Test
     public void faceNextEnemy() {
+        // TODO
     }
 }
