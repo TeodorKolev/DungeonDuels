@@ -6,5 +6,5 @@ $ mvn clean install
 ```
 ## Run
 Run as java application.
-## ER Diagram
+## UML Diagram
 ![alt tag](/src/diagram.png)
